@@ -26,5 +26,14 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 // Route::post('/login/admin', 'Auth\LoginController@adminLogout');
 
 Route::get('/admin', 'HomeController@admin')->middleware('auth:admin');
+Route::get('/userControl', 'AdminPanelController@showUsertable');
 // Route::get('/home', 'HomeController@index')->name('home');
 
+//order from ssl
+		Route::resource('products','ProductsController');
+
+		Route::resource('orders','OrdersController');
+
+		Route::get('/cart','ProductsController@cart');
+		Route::get('/menu','ProductsController@menu');
+		Route::post('/passOrder','OrdersController@order');

@@ -44,18 +44,18 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="administrator/vendor/jquery/jquery.min.js"></script>
-  <script src="administrator/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('administrator/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('administrator/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="administrator/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{{asset('administrator/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="administrator/js/sb-admin-2.min.js"></script>
+  <script src="{{asset('administrator/js/sb-admin-2.min.js')}}"></script>
 
   <!-- Page level plugins -->
-  <script src="administrator/vendor/chart.js/Chart.min.js"></script>
+  <script src="{{asset('administrator/vendor/chart.js/Chart.min.js')}}"></script>
 
   <!-- Page level custom scripts -->
-  <script src="administrator/js/demo/chart-area-demo.js"></script>
-  <script src="administrator/js/demo/chart-pie-demo.js"></script>
+  <script src="{{asset('administrator/js/demo/chart-area-demo.js')}}"></script>
+  <script src="{{asset('administrator/js/demo/chart-pie-demo.js')}}"></script>
