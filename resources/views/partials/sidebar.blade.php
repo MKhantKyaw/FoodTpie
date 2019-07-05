@@ -99,7 +99,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('userControl') }}">
+        <a class="nav-link" href="{{ url('admin/userControl') }}">
           <i class="fas fa-fw fa-user"></i>
           <span>Customers</span></a>
       </li>

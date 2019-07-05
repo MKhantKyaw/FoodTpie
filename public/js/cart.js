@@ -97,7 +97,7 @@ function addToCartClicked(event) {
   
     var button = event.target
     var shopItem = button.parentElement.parentElement
-    if (typeof shopItem.getElementsByClassName('product-id')[0] !== 'undefined') {
+    if (typeof shopItem.getElementsByClassName('product-id')[0] != 'undefined') {
         var id = shopItem.getElementsByClassName('product-id')[0].innerText
         var title = shopItem.getElementsByClassName('menu-item-title')[0].innerText
         var price = shopItem.getElementsByClassName('offer-price')[0].innerText

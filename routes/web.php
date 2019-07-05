@@ -12,21 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('page.index');
 });
 
 Auth::routes();
 
+//admin panel
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
-
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+Route::get('/admin', 'HomeController@admin')->middleware('auth:admin');
+Route::get('/admin/userControl', 'AdminPanelController@showUsertable');
 
 // Route::post('/login/admin', 'Auth\LoginController@adminLogout');
 
-Route::get('/admin', 'HomeController@admin')->middleware('auth:admin');
-Route::get('/userControl', 'AdminPanelController@showUsertable');
+
 // Route::get('/home', 'HomeController@index')->name('home');
 
 //order from ssl
