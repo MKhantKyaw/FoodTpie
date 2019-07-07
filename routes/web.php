@@ -46,7 +46,7 @@ Route::get('/admin/userControl', 'AdminPanelController@showUsertable');
 
 
 // Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('/', 'HomeController@index');
 //order from ssl
 		Route::resource('products','ProductsController');
 

@@ -20,14 +20,27 @@
                                     <li class="{{ (request()->is('reservation')) ? 'active' : '' }}"><a href="{{ url('/reservation') }}">Reservation</a></li>
                                     <li class="{{ (request()->is('about')) ? 'active' : '' }}"><a href="{{ url('/about') }}">About</a></li>
                                     <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}">Contact us</a></li>
-                                    <ul class="nav navbar-nav navbar-right"><li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">ACCOUNTS  <span class="glyphicon glyphicon-chevron-down"></span></a>
-                                      <ul class="dropdown-menu" style="background-color: #686868;">
-                                        <li><a href="register.html" style="color: #ffffff;">Register</a></li>
-                                        <li data-toggle="modal" data-target="#myModal" ><a href="#" style="color: #ffffff;">Login</a></li>
-                                        <li><a href="" style="color: #ffffff;">Log Out</a></li>
+                                    @if(Auth::guard('web')->check()==false)
+                                        <ul class="nav navbar-nav navbar-right"><li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">ACCOUNTS  <span class="glyphicon glyphicon-chevron-down"></span></a>
+                                          <ul class="dropdown-menu" style="background-color: #686868;">
+                                            <li><a href="register.html" style="color: #ffffff;">Register</a></li>
+                                            <li data-toggle="modal" data-target="#myModal" ><a href="#" style="color: #ffffff;">Login</a></li>
+                                            {{-- <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #ffffff;">Log Out</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            </li> --}}
+                                          </ul>
+                                        </li>
                                       </ul>
-                                    </li>
-                                  </ul>
+                                  @else
+                                        <ul class="nav navbar-nav navbar-right"><li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ auth()->user()->name }}  <span class="glyphicon glyphicon-chevron-down"></span></a>
+                                            <ul class="dropdown-menu" style="background-color: #686868;">
+                                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #ffffff;">Log Out</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            </li>
+                                            </ul>
+                                        </ul>
+
+                                  @endif
                                 </ul>
                             </div>
                             <!-- end nav-collapse -->
@@ -51,23 +64,63 @@
                   <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
               </div>
               <div class="modal-body" style="padding:40px 50px;">
-                  <form name="loginform" id="loginform" method="POST" action="login.php">
-                    <div class="form-group">
-                        <label for="useremail"><span class="glyphicon glyphicon-user"></span>Email</label>
-                        <input type="text" class="form-control" id="useremail" name="useremail" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="userpassword"><span class="glyphicon glyphicon-eye-open"></span>Password</label>
-                      <input type="password" class="form-control" id="userpassword" name="password" placeholder="Enter password">
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                    </div>
-                      <button type="submit" class="btn btn-success btn-block" onclick="loginAccount()" name="btnlogin">
-                        <span class="glyphicon glyphicon-off"></span>
-                        Login
-                      </button>
-                </form>
+                  <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" name="btnlogin">

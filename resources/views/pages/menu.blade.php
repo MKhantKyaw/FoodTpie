@@ -123,7 +123,7 @@
 </div>
 
 
-<div class="special-menu pad-top-100 parallax">
+{{-- <div class="special-menu pad-top-100 parallax">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -214,7 +214,7 @@
     <!-- end container -->
 </div>
 <!-- end special-menu -->
-
+ --}}
 
 <form id="order-submit-form" action="/passOrder" method="POST" style="display: none;">
     @csrf
