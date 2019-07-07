@@ -15,6 +15,23 @@ Route::get('/', function () {
     return view('page.index');
 });
 
+Route::get('/pricing', function() {
+	return view('page.pricing');
+});
+
+Route::get('/reservation', function() {
+	return view('page.reservation');
+});
+
+Route::get('/about' , function() {
+	return view('page.about_us');
+});
+
+Route::get('/contact' , function() {
+	return view('page.contact_us');
+});
+
+
 Auth::routes();
 
 //admin panel
