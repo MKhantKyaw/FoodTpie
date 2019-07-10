@@ -17,13 +17,13 @@
                                     <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
                                     <li class="{{ (request()->is('menu')) ? 'active' : '' }}"><a href="{{ url('/menu') }}">Menu</a></li>
                                     <li class="{{ (request()->is('pricing')) ? 'active' : '' }}"><a href="{{ url('/pricing') }}">pricing</a></li>
-                                    <li class="{{ (request()->is('reservation')) ? 'active' : '' }}"><a href="{{ url('/reservation') }}">Reservation</a></li>
+                                    {{-- <li class="{{ (request()->is('reservation')) ? 'active' : '' }}"><a href="{{ url('/reservation') }}">Reservation</a></li> --}}
                                     <li class="{{ (request()->is('about')) ? 'active' : '' }}"><a href="{{ url('/about') }}">About</a></li>
                                     <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}">Contact us</a></li>
                                     @if(Auth::guard('web')->check()==false)
                                         <ul class="nav navbar-nav navbar-right"><li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">ACCOUNTS  <span class="glyphicon glyphicon-chevron-down"></span></a>
-                                          <ul class="dropdown-menu" style="background-color: #686868;">
-                                            <li><a href="register.html" style="color: #ffffff;">Register</a></li>
+                                          <ul class="dropdown-menu" style="background-color: #00000;">
+                                            <li><a href="{{ url('registerUser') }}" style="color: #ffffff;">Register</a></li>
                                             <li data-toggle="modal" data-target="#myModal" ><a href="#" style="color: #ffffff;">Login</a></li>
                                             {{-- <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #ffffff;">Log Out</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -33,13 +33,12 @@
                                       </ul>
                                   @else
                                         <ul class="nav navbar-nav navbar-right"><li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ auth()->user()->name }}  <span class="glyphicon glyphicon-chevron-down"></span></a>
-                                            <ul class="dropdown-menu" style="background-color: #686868;">
+                                            <ul class="dropdown-menu" style="background-color: #00000;">
                                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #ffffff;">Log Out</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             </li>
                                             </ul>
                                         </ul>
-
                                   @endif
                                 </ul>
                             </div>

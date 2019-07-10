@@ -31,6 +31,10 @@ Route::get('/contact' , function() {
 	return view('page.contact_us');
 });
 
+Route::get('/registerUser' , function() {
+	return view('page.register');
+});
+
 
 Auth::routes();
 

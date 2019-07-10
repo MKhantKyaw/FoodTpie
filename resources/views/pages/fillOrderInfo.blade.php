@@ -6,7 +6,7 @@
 <h3>Products</h3>
 <ul>
     @foreach($products as $product)
-        <li>{{ $product[0] }}</li>
+        <li>{{ $product[0]->product_name }}</li>
     @endforeach
 </ul>
 <h3>Quantities</h3>
