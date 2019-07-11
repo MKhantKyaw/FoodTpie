@@ -7,6 +7,7 @@
     @include('/partials/sidebar')
     @include('/partials/nav')
     @yield('content')
+    @yield('script')
     @include('/partials/footer')
 </body>
 </html>

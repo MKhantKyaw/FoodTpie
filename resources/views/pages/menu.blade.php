@@ -5,7 +5,7 @@
 @section('content')
 
     
-<div id="banner" class="banner full-screen-mode parallax">
+{{-- <div id="banner" class="banner full-screen-mode parallax">
     <div class="container pr">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="banner-static">
@@ -29,8 +29,8 @@
     <!-- end container -->
 </div>
 <!-- end banner -->
-
-<div id="menu" class="menu-main pad-top-100 pad-bottom-100">
+ --}}
+<div id="menu" class="menu-main pad-top-100 pad-bottom-100" style="padding-top: 120px">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
