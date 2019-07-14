@@ -1,6 +1,6 @@
-@extends('partials/layout')
+@extends('user/layout/layout')
 
-@section('pageTitle', 'Orders')
+@section('pageTitle', 'User Dashboard')
 
 @section('content')
 
@@ -9,13 +9,13 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Orders</h1>
+          <h1 class="h3 mb-2 text-gray-800">Current Orders</h1> 
          {{--  <p class="mb-4">There are currently <b>{{ $counts }}</b> users in FoodTPie.</p> --}}
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Orders</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">

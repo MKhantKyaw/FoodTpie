@@ -13,7 +13,7 @@
           </button>
 
           <ul class="nav navbar-nav navbar-right">
-            <li style="font-size: 24px">Dashboard</li>
+            <li style="font-size: 24px">User Dashboard</li>
           </ul>
 
           <!-- Topbar Navbar -->

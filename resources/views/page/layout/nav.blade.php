@@ -34,7 +34,8 @@
                                   @else
                                         <ul class="nav navbar-nav navbar-right"><li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ auth()->user()->name }}  <span class="glyphicon glyphicon-chevron-down"></span></a>
                                             <ul class="dropdown-menu" style="background-color: #00000;">
-                                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #ffffff;">Log Out</a>
+                                                <li><a href="{{ url('/userDashboard') }}" style="color: black">User Panel</a></li>
+                                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: black;">Log Out</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             </li>
                                             </ul>

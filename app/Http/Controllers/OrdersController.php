@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Promo;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
@@ -41,6 +42,7 @@ class OrdersController extends Controller
         $oid = $order->id;
         $quants = json_decode(request('quantities'));
         $pids = json_decode(request('products'));
+        $promo = request('promo_info');
         $tmp = array();
         for ($i=0; $i < count($pids); $i++) { 
             $products = Product::where('id',$pids[$i])->get();
@@ -54,10 +56,16 @@ class OrdersController extends Controller
             );
             $order->addOrderDetail($ord);
         }
+        if($promo){
+            $promoRec = Promo::where('id',$promo)->get();
+            $promoRec[0]->delete();
+        }
         return redirect('/menu');
     }
     
     public function order(){
+        $uid = auth()->id();
+        $packages = Promo::where('uid',auth()->id())->get();
         $request = (object) [
             'pids' => json_decode(request('pids')),
             'quantities' => json_decode(request('quantities')),
@@ -71,11 +79,21 @@ class OrdersController extends Controller
         $products = (object) $products;
         $data = (object) [
             'quantities' => $request->quantities,
-            'totalPrice' => $request->totalPrice
         ];
         // dd($products);
-        return view('pages.fillOrderInfo',compact('data','products','prodCnt'));
+        return view('pages.fillOrder',compact('data','products','prodCnt','uid','packages'));
     }
+
+    function storePromo(){
+        $uid = auth()->id();
+        $promo = array(
+            'uid' => $uid,
+            'discount' => request('discount')
+        );
+        Promo::create($promo);
+        return redirect('/');
+    }
+
     /**
      * Display the specified resource.
      *

@@ -39,6 +39,10 @@ Route::get('/haha', function() {
 	return view('promoGenerator');
 });
 
+Route::get('/userDashboard', function() {
+	return view('user.index');
+});
+
 Auth::routes();
 
 //admin panel
