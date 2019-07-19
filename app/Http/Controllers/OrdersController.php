@@ -38,7 +38,7 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        $order = Order::create(request(['customer_name','order_date','order_location','total_price']));
+        $order = Order::create(request(['customer_name','phone_num','remark','order_date','order_location','total_price','status']));
         $oid = $order->id;
         $quants = json_decode(request('quantities'));
         $pids = json_decode(request('products'));
@@ -80,8 +80,8 @@ class OrdersController extends Controller
         $data = (object) [
             'quantities' => $request->quantities,
         ];
-        // dd($products);
-        return view('pages.fillOrder',compact('data','products','prodCnt','uid','packages'));
+        $totalPrice = $request->totalPrice;
+        return view('pages.fillOrder',compact('data','products','prodCnt','uid','packages','totalPrice'));
     }
 
     function storePromo(){

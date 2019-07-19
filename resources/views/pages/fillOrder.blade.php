@@ -42,6 +42,7 @@
     <!-- ALL PLUGINS -->
     <script src="{{ URL::asset('js/custom.js') }}"></script>
     <script src="{{ URL::asset('/path/to/jquery.cookie.js') }}"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AcNJcmeW59L94YUUw7eVKhsgrB7oIZFu9z8-9md-8ni3Sd_rhTcsdX-fY7PVsXD5nYKuVG-VSsz0MdPx"></script>
 
 </head>
 <body class="wave-bg">
@@ -102,7 +103,11 @@
                                     >
                                 </div>
                                 <div class="col-md-6 in-pudding">
-                                    <input type="tel" value="" name="PhoneIn" aria-label="Please enter your phone number" placeholder="Phone No.(ex. 09-123 456 7890)" class="inp">
+                                    <input type="tel" name="phone_num" aria-label="Please enter your phone number" placeholder="Phone No.(ex. 09-123 456 7890)" class="inp"
+                                        @if(Auth::guard('web')->check())
+                                            value="{{ auth()->user()->phone_num }}" 
+                                        @endif
+                                    >
                                 </div>
                             </div>
                             <div class="sub-h">
@@ -110,30 +115,60 @@
                             </div>
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Address:</label>
-                                <textarea class=" inp" name="order_location" id="exampleFormControlTextarea1" placeholder="Address" rows="3"></textarea>
+                                <textarea class=" inp" name="order_location" id="exampleFormControlTextarea1" placeholder="Address" rows="3">@if(Auth::guard('web')->check()){{ auth()->user()->address }}@endif</textarea>
                             </div>
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Order Remarks:</label>
-                                <input type="text" class=" inp" placeholder="Order Remarks">
+                                <input type="text" name="remark" class=" inp" placeholder="Order Remarks">
                             </div>
                             <input type="text" style="display: none" name="order_date" placeholder="order_date" value="{{ date('Y-m-d') }}">
-                            
+                            <input type="text" class="form-status" style="display: none" name="status" placeholder="order_date" value="on cash">
 
                             <div id="formgp" class="col-md-12"> 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Cash_on_delivery" value="option1" checked>
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Cash_on_delivery" value="option1" checked onclick="cashPayClicked()">
                                     <label class="check-label " for="Cash_on_delivery">Cash on Delivery</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Online Payment" value="option2">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Online Payment" value="option2" onclick="onlinePayClicked()">
                                     <label class="check-label" for="Online Payment">Online Payment</label>
                                 </div>                              
                             </div>
-                            <div id="formgp" class="col-md-12 text-center">
+                            <div id="formgp" class="col-md-12 text-center subCanBut">
                             <button type="button" class="btn btn-primary btn-lg btn-c btn-order-submit">Submit Order</button>            
                             <button type="button" class="btn btn-secondary btn-lg btn-c">Cancel</button>
                         </div>
-                            
+                        <div id="paypal-button-container" style="display: none"></div>
+                        <div id="server-total" style="display: none;">{{ $totalPrice }}</div>
+                        <script>
+                              paypal.Buttons({
+                                createOrder: function(data, actions) {
+                                  return actions.order.create({
+                                    purchase_units: [{
+                                      amount: {
+                                        value: document.getElementById('server-total').innerHTML
+                                      }
+                                    }]
+                                  });
+                                },
+                                onApprove: function(data, actions) {
+                                  return actions.order.capture().then(function(details) {
+                                    alert('Transaction completed by ' + details.payer.name.given_name);
+                                    onlinePay();
+                                    // Call your server to save the transaction
+                                    return fetch('/paypal-transaction-complete', {
+                                      method: 'post',
+                                      headers: {
+                                        'content-type': 'application/json'
+                                      },
+                                      body: JSON.stringify({
+                                        orderID: data.orderID
+                                      })
+                                    });
+                                  });
+                                }
+                              }).render('#paypal-button-container');
+                        </script>
                         </form>
                     </div>
                 </div>
@@ -227,7 +262,18 @@
         for (var i = 0; i < prodLen; i++) {
             addItemToCkTB(i,prods[i][0].id,prods[i][0].product_name,prods[i][0].price,quants[i])
         }
-        updateCkTotal()     
+        updateCkTotal()
+
+        function onlinePayClicked(){
+            document.getElementById('paypal-button-container').style.display = "block"
+            document.getElementsByClassName('subCanBut')[0].style.display = "none"
+        }
+
+        function cashPayClicked(){
+            document.getElementById('paypal-button-container').style.display = "none"
+            document.getElementsByClassName('subCanBut')[0].style.display = "block"
+        }
+
     </script>
 
 </body>

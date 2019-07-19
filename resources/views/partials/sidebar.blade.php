@@ -72,7 +72,7 @@
 
           <!-- Nav Item - Charts -->
       <li class="{{ (request()->is('admin/products')) ? 'nav-item active': 'nav-item' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{url('admin/products')}}">
           <i class="fas fa-fw fa-hamburger"></i>
           <span>Products</span></a>
       </li>

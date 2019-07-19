@@ -59,6 +59,15 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function adminValidator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -83,7 +92,7 @@ class RegisterController extends Controller
 
     protected function createAdmin(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $this->adminValidator($request->all())->validate();
         $admin = Admin::create([
             'name' => $request['name'],
             'email' => $request['email'],

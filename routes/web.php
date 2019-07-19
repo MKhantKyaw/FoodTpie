@@ -52,8 +52,10 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::get('/admin', 'HomeController@admin')->middleware('auth:admin');
 Route::get('/admin/userControl', 'AdminPanelController@showUsertable');
-Route::get('/admin/orders', 'AdminPanelController@showOrder');
-
+Route::get('/admin/orders', 'AdminPanelController@showAdminOrder');
+Route::get('/products', function() {
+	return view('admin.products');
+});
 // Route::post('/login/admin', 'Auth\LoginController@adminLogout');
 
 

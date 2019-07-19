@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Order;
 use Illuminate\Support\Facades\DB;
 class AdminPanelController extends Controller
 {
@@ -20,8 +21,18 @@ class AdminPanelController extends Controller
 		return view('admin.tables', compact('counts','users'));
 	}
 
-	public function showOrder()
+
+	public function showAdminOrder()
 	{
-		return view('admin.orders');
+		$orders = DB::table('orders')->get();
+		$products = DB::table('order_details')
+						->leftjoin('products','order_details.product_id','=','products.id')
+						->get();
+		return view('admin.orders',compact('orders','products'));
 	}
+	// 
+	// public function showProduct()
+	// {
+	// 	return view('admin.products');
+	// }
 }

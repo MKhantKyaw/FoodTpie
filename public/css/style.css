@@ -37,6 +37,13 @@
 
     @import url('https://fonts.googleapis.com/css?family=Paprika');
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+    
+   
+      @import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC');
+     @import url('https://fonts.googleapis.com/css?family=EB+Garamond|Lora|Rochester');
+     @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
 
 
 /*------------------------------------------------------------------
@@ -2286,7 +2293,7 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
 .btn-danger {
   margin-left: 10px;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #EB5757;
   border: none;
   border-radius: .3em;
@@ -2342,3 +2349,153 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
 }
 
 
+
+     
+/*-------------check out page------------*/
+
+
+   .header-block-top2{
+    background: #e75b1e;
+    opacity: 0.95;
+    z-index: 11;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+.navbar-b{
+   margin: 0 !important;
+    padding: 8px 0px 5px;
+    display: inline-block;
+    line-height: normal;
+    font-size: 100%;
+    height: 100%;
+}
+.wave-bg{
+  background:url(../images/beige-tiles.png) repeat ;
+     background-size:contain;
+}
+.in-pudding{
+  padding-bottom: 15px;
+}
+.form-div{
+  display: block;
+  padding-bottom: 10px;
+}
+.form-bo{
+  margin-top: 50px;
+  margin-bottom: 20px;
+    background: #000 center center;
+    opacity: .8;
+    color: #fff;
+    padding-bottom: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    word-spacing: 3px;
+}
+.confirm-content{
+  padding:25px 45px;
+}
+.abs{
+  color:#c49b63;
+  font-size: 26px;
+  font-weight: 500;
+  font-family: 'Rochester', cursive;
+  margin-bottom: 0;
+  font-size: 50px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#formgp{
+  margin-bottom: 5px;
+}
+::placeholder{
+  font-size: 16px;
+  color:#fff;
+  opacity: 1;
+  }
+.sub-h{
+  padding:15px 0px;
+  display: inline-block;
+  position: relative;
+
+}
+.sub-h h3{
+  font-size: 17px;
+  color:#e75b1e;
+  line-height: 1.3;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.inp{
+  position: relative;
+  width: 100%;
+  color:#fff;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  font-family: 'EB Garamond', serif;
+  padding: 5px 10px;
+  height: 40px;
+  background: #000;
+  border:0px; 
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+.check-label{
+  color:#fff;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  font-weight: normal;
+  font-family: 'EB Garamond', serif!important;
+
+}
+.message{
+  min-height: 150px;
+}
+.inp:hover{
+  border:0;
+  border-bottom: 2px solid #e75b1e; 
+}
+.inp:focus{
+outline: none !important;
+    }
+
+
+.table-color{
+}
+.ck-th{
+  background: #e75b1e;
+
+}
+.ck-tr:hover{
+  background: rgba(255,255,255,0.3)!important;
+}
+.text-right {
+  text-align: right;
+  padding-right: 40px!important;
+}
+
+.btn-primary,.btn-secondary,.btn-primary:focus{
+border:1px solid  #e75b1e;
+  background: rgba(0,0,0,0.8);
+  width: 120px;
+  height: 45px;
+  font-size: 16px;
+  padding:10px;
+  line-height: 1.3;
+  margin: 25px 20px 0px 0px;
+}
+.btn-primary:hover{
+  background: #e75b1e;
+  border: 1px solid #000;
+  opacity: 0.9;
+
+}
+.btn-secondary:hover{
+  color:#fff;
+  border:1px solid red;
+}
+.no-border{
+  border:none!important;
+}

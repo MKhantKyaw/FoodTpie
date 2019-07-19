@@ -56,6 +56,47 @@ function orderClicked(event){
     totalPrice.setAttribute("value",tP)
     totalPrice.setAttribute("style","display:none")
     form.appendChild(totalPrice)
+    document.getElementsByClassName('form-status')[0].value = "on cash"
+    alert("Thank you for ordering")
+    form.submit()
+}
+
+function onlinePay(){
+
+    var pids = []
+    var qtys = []
+
+    var ckpid = document.getElementsByClassName('ck-pid')
+    var ckqty = document.getElementsByClassName('ck-qty')
+
+    for (var i = 0; i < ckpid.length; i++) {
+        pids.push(ckpid[i].innerText)
+    }
+    for (var i = 0; i < ckqty.length; i++) {
+        qtys.push(ckqty[i].innerText)
+    }
+
+    var form = document.getElementById('ck-form')
+    var prodIn = document.createElement("input")
+    prodIn.setAttribute("type","text")
+    prodIn.setAttribute("name","products")
+    prodIn.setAttribute("value",JSON.stringify(pids))
+    prodIn.setAttribute("style","display:none")
+    form.appendChild(prodIn)
+    var quantIn = document.createElement("input")
+    quantIn.setAttribute("type","text")
+    quantIn.setAttribute("name","quantities")
+    quantIn.setAttribute("value",JSON.stringify(qtys))
+    quantIn.setAttribute("style","display:none")
+    form.appendChild(quantIn)
+    var totalPrice = document.createElement("input")
+    totalPrice.setAttribute("type","text")
+    totalPrice.setAttribute("name","total_price")
+    var tP = document.getElementsByClassName('total-price')[0].innerText.replace('$','')
+    totalPrice.setAttribute("value",tP)
+    totalPrice.setAttribute("style","display:none")
+    form.appendChild(totalPrice)
+    document.getElementsByClassName('form-status')[0].value = "online payment"
     alert("Thank you for ordering")
     form.submit()
 }
@@ -120,7 +161,6 @@ function updateCkTotal() {
         var cartRow = cartRows[i]
         var amount = cartRow.getElementsByClassName('ck-total-price')[0]
         total+=parseInt(amount.innerText)
-        amount.innerText = '$'+amount.innerText
     }
         document.getElementsByClassName('ck-oAmount')[0].innerText = '$' + total
     var tax=(total * 0.05);
@@ -129,7 +169,7 @@ function updateCkTotal() {
     	var total_F = total + tax + deliFee
     	total_F = Math.round(total_F *100) / 100
     	document.getElementsByClassName('total-price')[0].innerText= '$' + total_F
-        
+        document.getElementById('server-total').innerText = total_F
     
 }
 
