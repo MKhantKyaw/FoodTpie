@@ -13,7 +13,7 @@
   <link href="{{ URL::asset('administrator/css/sb-admin-2.min.css') }}"rel="stylesheet">
 
   <link href="{{ URL::asset('administrator/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-
+  
 </head>
 
 <body id="page-top">

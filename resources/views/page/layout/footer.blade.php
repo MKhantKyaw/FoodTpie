@@ -15,7 +15,7 @@
                                 <ul class="socials-box footer-socials pull-left">
                                     <li>
                                         <a href="#">
-                                            <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                            <div class="social-circle-border"><i class="fa fa-apple"></i></div>
                                         </a>
                                     </li>
                                     <li>
