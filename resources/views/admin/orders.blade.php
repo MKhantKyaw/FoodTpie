@@ -29,6 +29,7 @@
                       <th>Date</th>
                       <th>Phone Number</th>
                       <th>Location</th>
+                      <th>Invoice</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -40,6 +41,7 @@
                       <th>Date</th>
                       <th>Phone Number</th>
                       <th>Location</th>
+                      <th>Invoice</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -57,6 +59,7 @@
                           <td>{{ $order -> order_date }}</td>
                           <td>{{ $order -> phone_num }}</td>
                           <td>{{ $order -> order_location }}
+                          <td><a id="invoice" class="btn btn-success" href="/admin/invoice/{{ $order -> id }}">Get Invoice</a>
                         </tr>
                   @endforeach
                   </tbody>
@@ -74,17 +77,19 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <a  class="close" data-dismiss="modal">&times;</a>
+          <button  class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body" id="modal-body">
-        <table align="center" id="haha">
+        <table cellpadding="15px" align="center" id="haha">
         <div id="delete" style="align:center">
           <tr id="food">
           </tr>
         </div>
         </table>
         </div>
-      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       
     </div>
   </div>
@@ -94,24 +99,32 @@
           var prods = JSON.parse('<?php echo json_encode($products) ?>')
           
           $('body').on('click', 'button', function(e) {
-                $("#delete").remove();
-                $("#haha").append("<div id='delete'></div>");
 
-                for (var i = prods.length - 1; i >= 0; i--) {
-
-                  if(prods[i].order_id == $(this).attr('id')){
-                      $("#delete").append("<tr id=p"+prods[i].id+">");
-                      $("#p"+prods[i].id).append("<td style='padding-right:40px'>"+ prods[i].product_name+"</td>");
-
-                      if(prods[i].quantity > 1)
-                        $("#p"+prods[i].id).append("<td>"+ prods[i].quantity+" servings</td></tr>");
-
-                      else
-                        $("#p"+prods[i].id).append("<td>"+ prods[i].quantity+" serving</td></tr>");
-                    }
-                }
-                // $("#food").append("<li id="+prods[1].id+">"+prods[1].product_name+"</li>");
-              $("#myModal").modal("show");
+            if($(this).attr('id') != 'invoice' )
+               {
+                     $("#delete").remove();
+                         $("#haha").append("<div id='delete'></div>");
+                
+                         for (var i = 0 ; i<=prods.length - 1; i++) {
+         
+                           if(prods[i].order_id == $(this).attr('id')){
+                               $("#delete").append("<tr id=p"+prods[i].id+">");
+                               $("#p"+prods[i].id).append("<td style='padding-right:40px'>"+ prods[i].product_name+"</td>");
+         
+                               if(prods[i].quantity > 1)
+                                 $("#p"+prods[i].id).append("<td>"+ prods[i].quantity+" servings</td></tr>");
+         
+                               else
+                                 $("#p"+prods[i].id).append("<td>"+ prods[i].quantity+" serving</td></tr>");
+                             }
+                         }
+                         // $("#food").append("<li id="+prods[1].id+">"+prods[1].product_name+"</li>");
+                       $("#myModal").modal("show");
+               }
+              else
+              {
+                // window.location = "/admin";
+              }
           });
         });
 

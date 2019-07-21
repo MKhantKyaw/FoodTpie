@@ -35,13 +35,10 @@ Route::get('/registerUser' , function() {
 	return view('page.register');
 });
 
-Route::get('/haha', function() {
-	return view('promoGenerator');
-});
-
-Route::get('/userDashboard', function() {
-	return view('user.index');
-});
+//user panel
+Route::get('/userDashboard','UserpanelController@index');
+Route::get('/promotion','UserpanelController@promotion');
+Route::post('/storePromo','UserpanelController@storePromo');
 
 Auth::routes();
 
@@ -56,6 +53,9 @@ Route::get('/admin/orders', 'AdminPanelController@showAdminOrder');
 Route::get('/products', function() {
 	return view('admin.products');
 });
+
+Route::get('/admin/invoice/{order_id}','AdminPanelController@showPDF');
+
 // Route::post('/login/admin', 'Auth\LoginController@adminLogout');
 
 

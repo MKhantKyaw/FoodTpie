@@ -30,6 +30,16 @@ class AdminPanelController extends Controller
 						->get();
 		return view('admin.orders',compact('orders','products'));
 	}
+
+	public function showPDF($order_id)
+	{
+		$orders = DB::table('orders')
+						->leftjoin('order_details', 'orders.id', '=' ,'order_details.order_id')
+						->leftjoin('products','order_details.product_id','=','products.id')
+						->where('orders.id',$order_id)
+						->get();
+        return view('admin.invoice',compact('orders'));
+	}
 	// 
 	// public function showProduct()
 	// {

@@ -96,6 +96,13 @@
                             </div>
                             <div class="form-div">
                                 <div class="col-md-6 in-pudding">
+                                    <input type="text" style="display: none;" name="uid" class="inp"
+                                        @if(Auth::guard('web')->check())
+                                            value="{{ auth()->user()->id }}" 
+                                        @else
+                                            value="0"
+                                        @endif
+                                    >
                                     <input type="text" name="customer_name" placeholder="Name" class="inp"
                                         @if(Auth::guard('web')->check())
                                             value="{{ auth()->user()->name }}" 
@@ -121,8 +128,17 @@
                                 <label for="exampleFormControlTextarea1">Order Remarks:</label>
                                 <input type="text" name="remark" class=" inp" placeholder="Order Remarks">
                             </div>
-                            <input type="text" style="display: none" name="order_date" placeholder="order_date" value="{{ date('Y-m-d') }}">
-                            <input type="text" class="form-status" style="display: none" name="status" placeholder="order_date" value="on cash">
+                            <input type="text" class="form-status" style="display: none" name="status" value="on cash">
+
+                            <div id="formgp" class="col-md-12 in-pudding">
+                                <label for="exampleFormControlTextarea1">Order Date:</label>
+                                <input type="text" class ="inp" name="order_date" id="date-picker" placeholder="Date" required="required" data-error="Date is required." />
+                            </div>
+
+                            <div id="formgp" class="col-md-12 in-pudding">
+                                <label for="exampleFormControlTextarea1">Order Time:</label>
+                                <input type="text" class="inp" name="time" id="timepick" placeholder="Time" required="required" data-error="Time is required." />
+                            </div>
 
                             <div id="formgp" class="col-md-12"> 
                                 <div class="form-check form-check-inline">
@@ -275,6 +291,16 @@
         }
 
     </script>
-
+    <script type="text/javascript">
+        var date = new Date();
+        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        $('#date-picker').datetimepicker({
+            format: 'DD.MM.YYYY',
+            minDate: today
+        });
+        $('#timepick').datetimepicker({
+            format: 'LT'
+        });
+    </script>
 </body>
 </html>

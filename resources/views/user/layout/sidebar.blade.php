@@ -31,8 +31,8 @@
       </div>
 
       <!-- Nav Item - Charts -->
-      <li class="{{ (request()->is('/')) ? 'nav-item active': 'nav-item' }}">
-        <a class="nav-link" href="{{ url('userDashboard') }}">
+      <li class="{{ (request()->is('promotion')) ? 'nav-item active': 'nav-item' }}">
+        <a class="nav-link" href="{{ url('/promotion') }}">
           <i class="fa fa-bullhorn"></i>
           <span>Promotions</span></a>
       </li>
