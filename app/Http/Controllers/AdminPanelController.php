@@ -40,9 +40,9 @@ class AdminPanelController extends Controller
 						->get();
         return view('admin.invoice',compact('orders'));
 	}
-	// 
-	// public function showProduct()
-	// {
-	// 	return view('admin.products');
-	// }
+	
+	public function showProduct()
+	{
+		return view('admin.products');
+	}
 }

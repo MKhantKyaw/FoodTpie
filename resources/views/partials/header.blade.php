@@ -13,7 +13,12 @@
   <link href="{{ URL::asset('administrator/css/sb-admin-2.min.css') }}"rel="stylesheet">
 
   <link href="{{ URL::asset('administrator/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-  
+    {{--  <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script> window.Laravel = { csrfToken: '{{ csrf_token() }}' } </script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
 <body id="page-top">

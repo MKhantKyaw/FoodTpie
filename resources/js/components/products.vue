@@ -225,14 +225,12 @@ export default {
        addProduct(){
            if(this.edit === false) {
                //Add new product
-
             axios({
                 method: 'post',
                 url: 'api/product',
                 data: this.product
             }).then(res => {
                console.log('First stage is saved');
-                
                  this.addImage();
                 this.getProduct();
                 toast.fire({
@@ -248,7 +246,6 @@ export default {
                  url : 'api/product/'+this.product.id,
                  data : this.product,
              }).then(res => {
-                 
                     this.addImage();
                     this.getProduct();
                     toast.fire({
@@ -263,6 +260,7 @@ export default {
         addImage(){
             let imageData = new FormData();
             imageData.append('imageFile',this.imageFile);
+            imageData.append('category', this.product.category);
              const config = {
                     headers: { 'content-type': 'multipart/form-data' }
                 }
@@ -275,6 +273,7 @@ export default {
         },
 
        editProduct(product){
+         this.clearForm();
            this.edit = true;
            this.product.id = product.id;
            this.product_id = product.id;
@@ -292,6 +291,7 @@ export default {
             this.product.price = '',
             this.product.show = ''
             this.imageFile = null;
+            this.edit = false;
        }
         
     },

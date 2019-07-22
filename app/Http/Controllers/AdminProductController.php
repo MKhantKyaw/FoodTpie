@@ -38,22 +38,25 @@ class AdminProductController extends Controller
        $product->category = $request->input('category');
        $product->price = $request->input('price');
        $product->show = $request->input('show');
-       if($product->category == 'main dish'){
-                 $product->image_url = 'images/mainDishes/';
-            }
-        else if($product->category == 'side dish'){
-          $product->image_url = 'images/sideDishes/';
-        }
-        else if($product->category == 'dessert')
-        {
-          $product->image_url = 'images/desserts/';
-        }
+       $product->image_url = 'images/products/';
+
+       if($product->category == "main dish")
+       {
+        $product->image_url .='mainDishes/';
+       }
+       else if($product->category == "side dish"){
+        $product->image_url .='sideDishes/';
+       }else if($product->category == "dessert")
+       {
+        $product->image_url .='desserts/';
+       }else{
+        $product->image_url .='drinks/';
+       }
        $product->image_url .=$request->input('image');
 
        $product->save();
 
        return new ProductResource($product);
-        }
    }
     
        //    $imageFile = $request->input('imageFile');
@@ -65,7 +68,26 @@ class AdminProductController extends Controller
    {
     //    Original image Name
        $imageName = $request->imageFile->getClientOriginalName();
-       $request->imageFile->move(public_path('images'), $imageName);
+
+       $image = substr($imageName, strrpos($imageName,'/')+1);
+
+       $category = $request->input('category');
+        $path = 'images/products/';
+
+       if($category == "main dish")
+       {
+        $path .='mainDishes/';
+       }
+       else if($category == "side dish"){
+        $path .='sideDishes/';
+       }else if($category == "dessert")
+       {
+        $path .='desserts/';
+       }else{
+         $path .='drinks/';
+       }
+
+       $request->imageFile->move(public_path($path), $image);
 
         return;
    }
@@ -74,18 +96,28 @@ class AdminProductController extends Controller
    {
        $product = Product::findOrFail($request->input('id'));
        $product->product_name = $request->input('name');
-        if($product->category == 'main dish'){
-                 $product->image_url = 'images/mainDishes/';
-            }
-        else if($product->category == 'side dish'){
-          $product->image_url = 'images/sideDishes/';
-        }
-        else if($product->category == 'dessert')
-        {
-          $product->image_url = 'images/desserts/';
-        }
-       $product->image_url .=$request->input('image');
        $product->category = $request->input('category');
+
+       $imagePath = $request->input('image');
+       $image = substr($imagePath, strrpos($imagePath,'/')+1);
+
+       $product->image_url = 'images/products/';
+
+       if($product->category == "main dish")
+       {
+        $product->image_url .='mainDishes/';
+       }
+       else if($product->category == "side dish"){
+        $product->image_url .='sideDishes/';
+       }else if($product->category == "dessert")
+       {
+        $product->image_url .='desserts/';
+       }else{
+        $product->image_url .='drinks/';
+       }
+
+       $product->image_url .=$image;
+       
        $product->price = $request->input('price');
        $product->show = $request->input('show');
        if( $product->save() ){

@@ -35,6 +35,10 @@ Route::get('/registerUser' , function() {
 	return view('page.register');
 });
 
+
+Route::get('/productControl', 'AdminPanelController@showProduct');
+
+
 //user panel
 Route::get('/userDashboard','UserpanelController@index');
 Route::get('/promotion','UserpanelController@promotion');
@@ -50,9 +54,6 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::get('/admin', 'HomeController@admin')->middleware('auth:admin');
 Route::get('/admin/userControl', 'AdminPanelController@showUsertable');
 Route::get('/admin/orders', 'AdminPanelController@showAdminOrder');
-Route::get('/products', function() {
-	return view('admin.products');
-});
 
 Route::get('/admin/invoice/{order_id}','AdminPanelController@showPDF');
 
