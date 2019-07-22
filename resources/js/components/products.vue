@@ -116,20 +116,20 @@
 </template>
 
 <style scoped>
-a {
-    text-decoration: none;
-    color: black;
-}
-.cancel:hover{
-    text-decoration: none;
-    color:white;
-}
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .cancel:hover{
+            text-decoration: none;
+            color:white;
+        }
 
-img{
-    width:80px;
-    height:80px;
-    align-content: center;
-}
+        img{
+            width:80px;
+            height:80px;
+            align-content: center;
+        }
 </style>
 
 

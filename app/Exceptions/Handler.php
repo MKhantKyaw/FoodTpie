@@ -58,6 +58,9 @@ class Handler extends ExceptionHandler
             if ($request->is('admin') || $request->is('admin/*')) {
                 return redirect()->guest('/login/admin');
             }
+            if($request->is('admin') || $request->is('productControl')){
+                return redirect()->guest('/login/admin');
+            }
             return redirect()->guest(route('/'));
         }
 }

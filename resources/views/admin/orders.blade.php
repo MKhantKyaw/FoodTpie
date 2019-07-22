@@ -93,6 +93,7 @@
       
     </div>
   </div>
+@endsection
 
   <script type="text/javascript">
         $(document).ready(function(){
@@ -100,7 +101,7 @@
           
           $('body').on('click', 'button', function(e) {
 
-            if($(this).attr('id') != 'invoice' )
+            if( $(this).attr('id') != 'sidebarToggle' )
                {
                      $("#delete").remove();
                          $("#haha").append("<div id='delete'></div>");
@@ -131,7 +132,6 @@
 </script>
 
 
-@endsection
 
 @section('script')
  

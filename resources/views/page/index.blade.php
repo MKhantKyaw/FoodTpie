@@ -13,7 +13,7 @@
                             <h2>Good Food Equals Good Mood </h2>
                             <p>If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.</p>
                             <div class="book-btn">
-                                <a href="#reservation" class="table-btn hvr-underline-from-center">Order Now</a>
+                                <a href="{{ url('/menu') }}" class="table-btn hvr-underline-from-center">Order Now</a>
                             </div>
                         </div>
                         <!-- end banner-cell -->
