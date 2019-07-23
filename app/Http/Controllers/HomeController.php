@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -28,6 +30,8 @@ class HomeController extends Controller
 
     public function admin()
     {
-        return view('admin.index');
+        $orders = Order::all();
+        $productCnt = DB::table('products')->count();
+        return view('admin.index',compact('orders','productCnt'));
     }
 }

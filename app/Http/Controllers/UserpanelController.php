@@ -20,7 +20,7 @@ class UserpanelController extends Controller
         return view('user.index',compact('orders','products'));
     } 
 
-    public function cancelOrder($order_id, $order_date, $order_time
+    public function cancelOrder($order_id, $order_date, $order_time)
     {
 
         DB::table('orders')->where('id',$order_id)->delete();

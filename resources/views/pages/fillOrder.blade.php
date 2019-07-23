@@ -301,10 +301,12 @@
     </script>
     <script type="text/javascript">
         var date = new Date();
-        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1);
+        var nextDay = new Date(date.getFullYear(), date.getMonth(), date.getDate()+5);
         $('#date-picker').datetimepicker({
             format: 'DD.MM.YYYY',
-            minDate: today
+            minDate: today,
+            maxDate: nextDay,
         });
         $('#timepick').datetimepicker({
             format: 'LT',

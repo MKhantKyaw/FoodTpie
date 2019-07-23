@@ -49,8 +49,17 @@
                   </tfoot>
                   <tbody>
                    @foreach($orders as $order)
-                      <?php $temp = $order->id ?>
-                        <tr
+
+                      <?php 
+                          $ODate = $order -> order_date;    
+                          $toDate = date("d/m/Y");          
+                          $toDay = substr($toDate,0,2);   $toMonth = substr($toDate,3,2);   $toYear = substr($toDate,6,4);
+                          $ODay = substr($ODate,0,2);     $OMonth = substr($ODate,3,2);     $OYear = substr($ODate,6,4);?>
+                          
+
+                      @if(($ODay != $toDay) && ($OMonth == $toMonth) && ($OYear == $toYear))
+                  
+                        <tr>
                           <td>
                             <button type="button" class="btn btn-info btn-lg" id="{{$order->id}}" value="{{$order->id}}">
                             {{ $order -> id }}
@@ -69,6 +78,7 @@
                               </a>
                           </td>
                         </tr>
+                    @endif
                   @endforeach
                   </tbody>
                 </table>
