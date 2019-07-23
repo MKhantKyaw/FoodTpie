@@ -138,8 +138,8 @@ function purchaseClicked(event) {
     ckRow.classList.add('ck-tr')
     var ckItems = document.getElementsByClassName('ck-items')[0]
     var ckRowContents=`
-                                <th scope="row">${no+1} <button class="btn btn-danger" type="button">x</button></th>
-                                
+                                <th scope="row">${no+1}</th>
+                                <td style="width:5%"><button class="btn btn-danger ck-cancel" type="button">x</button></td>
                                 <td class="ck-item">${title}</td>
                                 <td class="ck-price">$${price}</td>
                                 <td class="ck-qty">${quantity}</td>

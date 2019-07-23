@@ -137,7 +137,7 @@
 
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Order Time:</label>
-                                <input type="text" class="inp" name="time" id="timepick" placeholder="Time" required="required" data-error="Time is required." />
+                                <input type="text" class="inp2" name="time" id="timepick" placeholder="Time" required="required" data-error="Time is required." />
                             </div>
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Promo Code:</label>
@@ -209,7 +209,8 @@
             <table class="table table-hover table-color">
                 <thead class="ck-th">
                     <tr>            
-                        <th scope="col">#</th>                
+                        <th scope="col">#</th> 
+                        <th scope="col"></th>               
                         <th scope="col">Item</th>
                         <th scope="col">Price</th>
                         <th scope="col">Quality</th>
@@ -247,19 +248,19 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4" class="text-right ">Order Amount:</td>
+                    <td colspan="5" class="text-right ">Order Amount:</td>
                     <td class="ck-oAmount ">$0</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="text-right no-border">Tax:</td>
+                    <td colspan="5" class="text-right no-border">Tax:</td>
                     <td class="ck-tax">$0</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="text-right no-border">Delivery charge:</td>
+                    <td colspan="5" class="text-right no-border">Delivery charge:</td>
                     <td class="ck-deli">$0</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="text-right no-border">Total: </td>
+                    <td colspan="5" class="text-right no-border">Total: </td>
                     <td class="total-price">$0</td>
                 </tr>
             </tfoot>

@@ -111,13 +111,15 @@
                 <strong class="cart-total-title">Total</strong>
                 <span class="cart-total-price">$0</span>
             </div> -->
-            <table class="table">
+           
+            <table class="table table-responsive">
               <thead  class="thead-light">
                 <tr class=" cart-row">
                 <th scope="col"></th>
                   <th scope="col" class="cart-item cart-header ">Item </th>
                   <th scope="col" class="cart-price cart-header">Price</th>
                   <th scope="col" class="cart-quantity cart-header">Quantity</th>
+                  <th scope="col" class="cart-header"></th>
               </tr>
           </thead>
           <tbody class="cart-items">
@@ -132,6 +134,7 @@
           </tr> -->
       </tbody>
   </table>
+
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
                 <span class="cart-total-price">$0</span>

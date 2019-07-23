@@ -2292,8 +2292,7 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
   border-radius: 10px;
 }
 
-.btn-danger {
-  margin-left: 3px;
+.cart-cancel {
   color: white;
   font-size: 12px;
   background-color: #EB5757;
@@ -2302,7 +2301,7 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
   font-weight: bold;
 }
 
-.btn-danger:hover {
+.cart-cancel:hover {
   background-color: #CC4C4C;
 }
 
@@ -2438,6 +2437,20 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
   border:0px; 
   border-bottom: 2px solid rgba(255,255,255,0.3);
 }
+
+.ck-cancel{
+  color: white;
+  font-size: 12px;
+  background:rgba(0,0,0,0.8);
+  border: 1.5px solid #e75b1e;
+  border-radius: 1.2em;
+  font-weight: bold;
+}
+.ck-cancel:hover{
+  background:rgba(0,0,0,0.8);
+  border-color: red;
+}
+
 .check-label{
   color:#fff;
   font-size: 16px;
