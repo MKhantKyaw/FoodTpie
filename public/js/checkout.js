@@ -165,12 +165,17 @@ function updateCkTotal() {
         document.getElementsByClassName('ck-oAmount')[0].innerText = '$' + total
     var tax=(total * 0.05);
         document.getElementsByClassName('ck-tax')[0].innerText='$' + tax
-        var deliFee=0;
-        var total_F = total + tax + deliFee
+        var total_F = total + tax
+        var select = document.getElementById("slct")
+        var selectedValue = select.options[select.selectedIndex].value
+        var promoData = selectedValue.split(' ')
+        var discount = promoData[0]
+        var promoId = promoData[1]
+        total_F -= total_F * discount
         total_F = Math.round(total_F *100) / 100
         document.getElementsByClassName('total-price')[0].innerText= '$' + total_F
         document.getElementById('server-total').innerText = total_F
-    
+        document.getElementById('promoId').value = promoId
 }
 
 

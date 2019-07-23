@@ -107,14 +107,14 @@
                                     @if(Auth::guard('web')->check())
                                     value="{{ auth()->user()->name }}" 
                                     @endif
-                                    >
+                                    required="required">
                                 </div>
                                 <div class="col-md-6 in-pudding">
                                     <input type="tel" name="phone_num" aria-label="Please enter your phone number" placeholder="Ph No.(e.g. 09-123 456 7890)" class="inp"
                                     @if(Auth::guard('web')->check())
                                     value="{{ auth()->user()->phone_num }}" 
                                     @endif
-                                    >
+                                    required="required">
                                 </div>
                             </div>
                             <div class="sub-h">
@@ -122,7 +122,7 @@
                             </div>
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Address:</label>
-                                <textarea class=" inp" name="order_location" id="exampleFormControlTextarea1" placeholder="Address" rows="3">@if(Auth::guard('web')->check()){{ auth()->user()->address }}@endif</textarea>
+                                <textarea class=" inp" name="order_location" id="exampleFormControlTextarea1" placeholder="Address" rows="3" required="required">@if(Auth::guard('web')->check()){{ auth()->user()->address }}@endif</textarea>
                             </div>
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Order Remarks:</label>
@@ -142,12 +142,15 @@
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Promo Code:</label>
                                 <div class="select">
-                                  <select name="slct" id="slct">
-                                    <option selected disabled>Choose an option</option>
-                                    <option value="1">Code 1</option>
-                                    <option value="2">Code 2</option>
-                                    <option value="3">Code 3</option>
+                                  <select name="slct" id="slct" onchange="updateCkTotal()">
+                                    <option selected value="0 0">Choose an option</option>
+                                    @if(Auth::guard('web')->check())
+                                        @foreach($promos as $promo)
+                                            <option value="{{ $promo->discount }} {{ $promo->id }}">{{ $promo->discount*100 }}%</option>
+                                        @endforeach
+                                    @endif
                                 </select>
+                                <input type="text" name="promo_id" id="promoId" style="display: none;" value="0">
                             </div>
                         </div>
 
@@ -255,8 +258,8 @@
                     <td class="ck-tax">$0</td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="text-right no-border">Delivery charge:</td>
-                    <td class="ck-deli">$0</td>
+                    <td colspan="4" class="text-right no-border">Discount:</td>
+                    <td class="ck-disc">$0</td>
                 </tr>
                 <tr>
                     <td colspan="4" class="text-right no-border">Total: </td>
@@ -274,16 +277,11 @@
 <script>
         //data fetching
         var quants = []
-        var packs = []
         var prods = JSON.parse('<?php echo json_encode($products) ?>')
         var prodLen = JSON.parse('<?php echo json_encode($prodCnt) ?>')
         var quantJson = JSON.parse('<?php echo json_encode($data->quantities) ?>')
-        var packsJson = JSON.parse('<?php echo json_encode($packages) ?>')
         for (var i = quantJson.length - 1; i >= 0; i--) {
             quants.push(quantJson[i])
-        }
-        for (var i = 0; i < packsJson.length; i++) {
-            packs.push(packsJson[i])
         }
         //displaying cart items
         for (var i = 0; i < prodLen; i++) {
@@ -301,12 +299,10 @@
     </script>
     <script type="text/javascript">
         var date = new Date();
-        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1);
-        var nextDay = new Date(date.getFullYear(), date.getMonth(), date.getDate()+5);
+        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         $('#date-picker').datetimepicker({
             format: 'DD.MM.YYYY',
-            minDate: today,
-            maxDate: nextDay,
+            minDate: today
         });
         $('#timepick').datetimepicker({
             format: 'LT',

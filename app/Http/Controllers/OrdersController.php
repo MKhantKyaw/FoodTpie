@@ -39,6 +39,8 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         $order = Order::create(request(['uid','customer_name','phone_num','remark','order_date','time','order_location','total_price','status']));
+        $usedPromo = request('promo_id');
+        Promo::where('id',$usedPromo)->delete();
         $oid = $order->id;
         $quants = json_decode(request('quantities'));
         $pids = json_decode(request('products'));
@@ -65,7 +67,7 @@ class OrdersController extends Controller
     
     public function order(){
         $uid = auth()->id();
-        $packages = Promo::where('uid',auth()->id())->get();
+        $promos = Promo::where('uid',auth()->id())->get();
         $request = (object) [
             'pids' => json_decode(request('pids')),
             'quantities' => json_decode(request('quantities')),
@@ -81,7 +83,7 @@ class OrdersController extends Controller
             'quantities' => $request->quantities,
         ];
         $totalPrice = $request->totalPrice;
-        return view('pages.fillOrder',compact('data','products','prodCnt','uid','packages','totalPrice'));
+        return view('pages.fillOrder',compact('data','products','prodCnt','uid','promos','totalPrice'));
     }
 
     function storePromo(){
