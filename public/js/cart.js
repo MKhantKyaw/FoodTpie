@@ -109,8 +109,8 @@ function addToCartClicked(event) {
 
 function addItemToCart(id, title, price, imageSrc) {
       
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
+    var cartRow = document.createElement('tr')
+    cartRow.classList.add('cart-item')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemNames.length; i++) {
@@ -120,16 +120,15 @@ function addItemToCart(id, title, price, imageSrc) {
         }
     }
     var cartRowContents = `
-        <div class="cart-item cart-column">
-            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
-            <span class="cart-item-title">${title}</span>
-        </div>
-        <span class="cart-price cart-column">${price}</span>
-        <div class="cart-quantity cart-column">
-            
-        <input class="cart-quantity-input" type="number" value="1">
-            <button class="btn btn-danger" type="button">x</button>
-        </div>`
+                  
+            <td><img class="cart-item-image img-fluid img-thumbnail hidden-xs-down" src="${imageSrc}" ></td>    
+              <td class="cart-item-title cart-column">${title}</td>
+              <td class="cart-price cart-column ">${price}</td>
+              <td  class="cart-quantity cart-column">            
+                 <input class="cart-quantity-input" type="number" value="1">
+                 <button class="btn btn-danger" type="button">x</button>
+            </td>
+          `
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
     var idHolder = document.createElement("DIV")
@@ -146,7 +145,7 @@ function addItemToCart(id, title, price, imageSrc) {
 
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var cartRows = cartItemContainer.getElementsByClassName('cart-item')
     var total = 0
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i]
@@ -159,12 +158,3 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
-
-
-
-
-
-
-
-
-

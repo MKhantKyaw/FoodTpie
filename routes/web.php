@@ -43,7 +43,7 @@ Route::get('/productControl', 'AdminPanelController@showProduct');
 Route::get('/userDashboard','UserpanelController@index');
 Route::get('/promotion','UserpanelController@promotion');
 Route::post('/storePromo','UserpanelController@storePromo');
-
+Route::get('/userDashboard/{order_id}/{order_date}/{order_time}', 'UserpanelController@cancelOrder');
 Auth::routes();
 
 //admin panel

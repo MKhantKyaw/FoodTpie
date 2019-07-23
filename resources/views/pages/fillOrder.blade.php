@@ -32,17 +32,17 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="{{ URL::asset('js/cart.js') }}" async></script>
-    <script src="{{ URL::asset('js/checkout.js') }}"></script>
+  <![endif]-->
+  <script src="{{ URL::asset('js/cart.js') }}" async></script>
+  <script src="{{ URL::asset('js/checkout.js') }}"></script>
 
-    <!-- ALL JS FILES -->
-    <script src="{{ URL::asset('js/all.js') }}"></script>
-    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-    <!-- ALL PLUGINS -->
-    <script src="{{ URL::asset('js/custom.js') }}"></script>
-    <script src="{{ URL::asset('/path/to/jquery.cookie.js') }}"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AcNJcmeW59L94YUUw7eVKhsgrB7oIZFu9z8-9md-8ni3Sd_rhTcsdX-fY7PVsXD5nYKuVG-VSsz0MdPx"></script>
+  <!-- ALL JS FILES -->
+  <script src="{{ URL::asset('js/all.js') }}"></script>
+  <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+  <!-- ALL PLUGINS -->
+  <script src="{{ URL::asset('js/custom.js') }}"></script>
+  <script src="{{ URL::asset('/path/to/jquery.cookie.js') }}"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AcNJcmeW59L94YUUw7eVKhsgrB7oIZFu9z8-9md-8ni3Sd_rhTcsdX-fY7PVsXD5nYKuVG-VSsz0MdPx"></script>
 
 </head>
 <body class="wave-bg">
@@ -97,23 +97,23 @@
                             <div class="form-div">
                                 <div class="col-md-6 in-pudding">
                                     <input type="text" style="display: none;" name="uid" class="inp"
-                                        @if(Auth::guard('web')->check())
-                                            value="{{ auth()->user()->id }}" 
-                                        @else
-                                            value="0"
-                                        @endif
+                                    @if(Auth::guard('web')->check())
+                                    value="{{ auth()->user()->id }}" 
+                                    @else
+                                    value="0"
+                                    @endif
                                     >
                                     <input type="text" name="customer_name" placeholder="Name" class="inp"
-                                        @if(Auth::guard('web')->check())
-                                            value="{{ auth()->user()->name }}" 
-                                        @endif
+                                    @if(Auth::guard('web')->check())
+                                    value="{{ auth()->user()->name }}" 
+                                    @endif
                                     >
                                 </div>
                                 <div class="col-md-6 in-pudding">
-                                    <input type="tel" name="phone_num" aria-label="Please enter your phone number" placeholder="Phone No.(ex. 09-123 456 7890)" class="inp"
-                                        @if(Auth::guard('web')->check())
-                                            value="{{ auth()->user()->phone_num }}" 
-                                        @endif
+                                    <input type="tel" name="phone_num" aria-label="Please enter your phone number" placeholder="Ph No.(e.g. 09-123 456 7890)" class="inp"
+                                    @if(Auth::guard('web')->check())
+                                    value="{{ auth()->user()->phone_num }}" 
+                                    @endif
                                     >
                                 </div>
                             </div>
@@ -139,128 +139,139 @@
                                 <label for="exampleFormControlTextarea1">Order Time:</label>
                                 <input type="text" class="inp" name="time" id="timepick" placeholder="Time" required="required" data-error="Time is required." />
                             </div>
-
-                            <div id="formgp" class="col-md-12"> 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Cash_on_delivery" value="option1" checked onclick="cashPayClicked()">
-                                    <label class="check-label " for="Cash_on_delivery">Cash on Delivery</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Online Payment" value="option2" onclick="onlinePayClicked()">
-                                    <label class="check-label" for="Online Payment">Online Payment</label>
-                                </div>                              
+                            <div id="formgp" class="col-md-12 in-pudding">
+                                <label for="exampleFormControlTextarea1">Promo Code:</label>
+                                <div class="select">
+                                  <select name="slct" id="slct">
+                                    <option selected disabled>Choose an option</option>
+                                    <option value="1">Code 1</option>
+                                    <option value="2">Code 2</option>
+                                    <option value="3">Code 3</option>
+                                </select>
                             </div>
-                            <div id="formgp" class="col-md-12 text-center subCanBut">
+                        </div>
+
+                        <div id="formgp" class="col-md-12"> 
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Cash_on_delivery" value="option1" checked onclick="cashPayClicked()">
+                                <label class="check-label " for="Cash_on_delivery">Cash on Delivery</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Online Payment" value="option2" onclick="onlinePayClicked()">
+                                <label class="check-label" for="Online Payment">Online Payment</label>
+                            </div>                              
+                        </div>
+                        <div id="formgp" class="col-md-12 text-center subCanBut">
                             <button type="button" class="btn btn-primary btn-lg btn-c btn-order-submit">Submit Order</button>            
                             <button type="button" class="btn btn-secondary btn-lg btn-c">Cancel</button>
                         </div>
                         <div id="paypal-button-container" style="display: none"></div>
                         <div id="server-total" style="display: none;">{{ $totalPrice }}</div>
                         <script>
-                              paypal.Buttons({
-                                createOrder: function(data, actions) {
-                                  return actions.order.create({
-                                    purchase_units: [{
-                                      amount: {
-                                        value: document.getElementById('server-total').innerHTML
-                                      }
-                                    }]
-                                  });
-                                },
-                                onApprove: function(data, actions) {
-                                  return actions.order.capture().then(function(details) {
-                                    alert('Transaction completed by ' + details.payer.name.given_name);
-                                    onlinePay();
+                          paypal.Buttons({
+                            createOrder: function(data, actions) {
+                              return actions.order.create({
+                                purchase_units: [{
+                                  amount: {
+                                    value: document.getElementById('server-total').innerHTML
+                                }
+                            }]
+                        });
+                          },
+                          onApprove: function(data, actions) {
+                              return actions.order.capture().then(function(details) {
+                                alert('Transaction completed by ' + details.payer.name.given_name);
+                                onlinePay();
                                     // Call your server to save the transaction
                                     return fetch('/paypal-transaction-complete', {
                                       method: 'post',
                                       headers: {
                                         'content-type': 'application/json'
-                                      },
-                                      body: JSON.stringify({
+                                    },
+                                    body: JSON.stringify({
                                         orderID: data.orderID
-                                      })
-                                    });
-                                  });
-                                }
-                              }).render('#paypal-button-container');
-                        </script>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 confirm-content">
-                    <div class="sub-h">
-                                <h3>Order Summary</h3>
-                            </div>
-                    <table class="table table-hover table-color">
-                        <thead class="ck-th">
-                            <tr>            
-                                <th scope="col">#</th>      
-                                <th>    </th>           
-                                <th scope="col">Item</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quality</th>
-                                <th scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="ck-items">
-
-                            <!-- cart item will be dislay here -->
-
-                            {{-- <tr class="ck-tr">
-                                <th scope="row">1</th>
-                                <td><button class="btn btn-danger" type="button">x</button></td>
-                                <td class="ck-item">Milk</td>
-                                <td class="ck-price">$30</td>
-                                <td class="ck-qty">2</td>
-                                <td class="ck-total-price">$60</td>
-                            </tr>
-                            <tr class="ck-tr">
-                                <th scope="row">1</th>
-                                <td><button class="btn btn-danger" type="button">x</button></td>
-                                <td class="ck-item">Chocolate</td>
-                                <td class="ck-price">$35</td>
-                                <td class="ck-qty">2</td>
-                                <td class="ck-total-price">$70</td>
-                            </tr>
-                            <tr class="ck-tr">
-                                <th scope="row">1</th>
-                                <td><button class="btn btn-danger "  type="button">x</button></td>
-                                <td class="ck-item">Apple</td>
-                                <td class="ck-price">$30</td>
-                                <td class="ck-qty">1</td>
-                                <td class="ck-total-price">$30</td>
-                            </tr> --}}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="5" class="text-right ">Order Amount:</td>
-                                <td class="ck-oAmount ">$0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right no-border">Tax:</td>
-                                <td class="ck-tax">$0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right no-border">Delivery charge:</td>
-                                <td class="ck-deli">$0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right no-border">Total: </td>
-                                <td class="total-price">$0</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
+                                    })
+                                });
+                                });
+                          }
+                      }).render('#paypal-button-container');
+                  </script>
+              </form>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-12 confirm-content">
+        <div class="sub-h">
+            <h3>Order Summary</h3>
         </div>
+        <div class="table-responsive">
+            <table class="table table-hover table-color">
+                <thead class="ck-th">
+                    <tr>            
+                        <th scope="col">#</th>                
+                        <th scope="col">Item</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quality</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody class="ck-items">
+
+                  <!-- cart item will be dislay here -->
+
+                 <!-- <tr class="ck-tr">
+                    <th scope="row">1</th>
+                    <td><button class="btn btn-danger" type="button">x</button></td>
+                    <td class="ck-item">Milk</td>
+                    <td class="ck-price">$30</td>
+                    <td class="ck-qty">2</td>
+                    <td class="ck-total-price">$60</td>
+                </tr>
+                <tr class="ck-tr">
+                    <th scope="row">1</th>
+                    <td><button class="btn btn-danger" type="button">x</button></td>
+                    <td class="ck-item">Chocolate</td>
+                    <td class="ck-price">$35</td>
+                    <td class="ck-qty">2</td>
+                    <td class="ck-total-price">$70</td>
+                </tr>
+                <tr class="ck-tr">
+                    <th scope="row">1</th>
+                    <td><button class="btn btn-danger "  type="button">x</button></td>
+                    <td class="ck-item">Apple</td>
+                    <td class="ck-price">$30</td>
+                    <td class="ck-qty">1</td>
+                    <td class="ck-total-price">$30</td>
+                </tr>   -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-right ">Order Amount:</td>
+                    <td class="ck-oAmount ">$0</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-right no-border">Tax:</td>
+                    <td class="ck-tax">$0</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-right no-border">Delivery charge:</td>
+                    <td class="ck-deli">$0</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-right no-border">Total: </td>
+                    <td class="total-price">$0</td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
+</div>
+</div>
+</div>
 
-    <a href="#" class="scrollup" style="display: none;">Scroll</a>
+<a href="#" class="scrollup" style="display: none;">Scroll</a>
 
-    <script>
+<script>
         //data fetching
         var quants = []
         var packs = []
@@ -279,17 +290,14 @@
             addItemToCkTB(i,prods[i][0].id,prods[i][0].product_name,prods[i][0].price,quants[i])
         }
         updateCkTotal()
-
         function onlinePayClicked(){
             document.getElementById('paypal-button-container').style.display = "block"
             document.getElementsByClassName('subCanBut')[0].style.display = "none"
         }
-
         function cashPayClicked(){
             document.getElementById('paypal-button-container').style.display = "none"
             document.getElementsByClassName('subCanBut')[0].style.display = "block"
         }
-
     </script>
     <script type="text/javascript">
         var date = new Date();
@@ -299,7 +307,8 @@
             minDate: today
         });
         $('#timepick').datetimepicker({
-            format: 'LT'
+            format: 'LT',
+            enabledHours: [10, 11, 12, 13, 14, 15, 16],
         });
     </script>
 </body>

@@ -2166,9 +2166,9 @@ __webpack_require__.r(__webpack_exports__);
       this.product_id = product.id;
       this.product.name = product.name;
       this.product.category = product.category;
-      this.product.image = product.image;
+      this.product.image = product.image.substring(product.image.lastIndexOf('/') + 1, product.image.length);
       this.product.price = product.price;
-      this.product.show = product.show;
+      this.product.show = product.show; // product.image.substring(product.image.lastIndexOf('/')+1,product.image.length);
     },
     clearForm: function clearForm() {
       this.product.name = '', this.product.category = '', this.product.image = '', this.product.price = '', this.product.show = '';

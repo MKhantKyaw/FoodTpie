@@ -4,7 +4,7 @@
 
 @section('content')
 
-    
+
 {{-- <div id="banner" class="banner full-screen-mode parallax">
     <div class="container pr">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -29,7 +29,7 @@
     <!-- end container -->
 </div>
 <!-- end banner -->
- --}}
+--}}
 <div id="menu" class="menu-main pad-top-100 pad-bottom-100" style="padding-top: 120px">
     <div class="container">
         <div class="row">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="slider slider-single menu-slider">
-                    
+
                 </div>
             </div>
             <!-- end tab-menu -->
@@ -74,13 +74,13 @@
 <!-- end menu -->
 
 <!-- cart Nav -->
-    <div class="side-menu" id="sidenav">
-      <button type="button" id="cart"  class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
-  Cart<i class="fas fa-shopping-cart icart "  aria-hidden="true"></i>
-   <span id="itemCount"></span>
-    
-</button>
-  </div><!-- closing of sidemenu-->
+<div class="side-menu" id="sidenav">
+  <button type="button" id="cart"  class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
+      Cart<i class="fas fa-shopping-cart icart "  aria-hidden="true"></i>
+      <span id="itemCount"></span>
+
+  </button>
+</div><!-- closing of sidemenu-->
 <!-- container-->
 
 <!-- end of cart nav -->
@@ -96,30 +96,54 @@
         <h4 class="modal-title">Shopping Cart</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-            <div class=" cart-row">
+      </button>
+  </div>
+  <div class="modal-body">
+           <!--  <div class=" cart-row">
                 <span class="cart-item cart-header cart-column cart-column-subh">ITEM</span>
                 <span class="cart-price cart-header cart-column cart-column-subh">PRICE</span>
                 <span class="cart-quantity cart-header cart-column cart-column-subh">QUANTITY</span>
+                <span class=" cart-col-space "></span>
             </div>
             <div class="cart-items">
             </div>
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
                 <span class="cart-total-price">$0</span>
+            </div> -->
+            <table class="table">
+              <thead  class="thead-light">
+                <tr class=" cart-row">
+                <th scope="col"></th>
+                  <th scope="col" class="cart-item cart-header ">Item </th>
+                  <th scope="col" class="cart-price cart-header">Price</th>
+                  <th scope="col" class="cart-quantity cart-header">Quantity</th>
+              </tr>
+          </thead>
+          <tbody class="cart-items">
+            <!-- <tr class="cart-item">          
+            <td><img class="cart-item-image" src="${imageSrc}" width="100" height="100"></td>    
+              <td class="cart-item-title cart-column">${title}</td>
+              <td class="cart-price cart-column ">${price}</td>
+              <td class="cart-quantity cart-column">            
+                 <input class="cart-quantity-input" type="number" value="1">
+                 <button class="btn btn-danger" type="button">x</button>
+            </td>
+          </tr> -->
+      </tbody>
+  </table>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
             </div>
-            
-    
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-      </div>
-    </div>
-  </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -214,7 +238,7 @@
     <!-- end container -->
 </div>
 <!-- end special-menu -->
- --}}
+--}}
 
 <form id="order-submit-form" action="/passOrder" method="POST" style="display: none;">
     @csrf
@@ -234,13 +258,11 @@
     var buttonICls = "fas fa-shopping-cart"
     var buttonISty = "color: #fff;"
     var loremIp = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus."
-
     var prods = JSON.parse('<?php echo json_encode($products) ?>')
     var mainDishes = []
     var sideDishes = []
     var desserts = []
     var drinks = []
-
     for (var i = prods.length - 1; i >= 0; i--) {
         if(prods[i].category == "Main Dish"){
             mainDishes.push(prods[i])
@@ -254,7 +276,7 @@
     }
     //main dish
     var div = document.createElement("DIV")
-     for (var i = mainDishes.length - 1; i >= 0; i--) {
+    for (var i = mainDishes.length - 1; i >= 0; i--) {
         var productCol = document.createElement("DIV")
         productCol.setAttribute("class", productColCls)
         var productCont = document.createElement("DIV")
@@ -302,10 +324,9 @@
         div.appendChild(productCol) 
     }
     document.getElementsByClassName("menu-slider")[0].appendChild(div)
-
     //side dish
     var div = document.createElement("DIV")
-     for (var i = sideDishes.length - 1; i >= 0; i--) {
+    for (var i = sideDishes.length - 1; i >= 0; i--) {
         var productCol = document.createElement("DIV")
         productCol.setAttribute("class", productColCls)
         var productCont = document.createElement("DIV")
@@ -353,10 +374,9 @@
         div.appendChild(productCol) 
     }
     document.getElementsByClassName("menu-slider")[0].appendChild(div)
-
     //dessert
     var div = document.createElement("DIV")
-     for (var i = desserts.length - 1; i >= 0; i--) {
+    for (var i = desserts.length - 1; i >= 0; i--) {
         var productCol = document.createElement("DIV")
         productCol.setAttribute("class", productColCls)
         var productCont = document.createElement("DIV")
@@ -404,10 +424,9 @@
         div.appendChild(productCol) 
     }
     document.getElementsByClassName("menu-slider")[0].appendChild(div)
-
     //drinks
     var div = document.createElement("DIV")
-     for (var i = drinks.length - 1; i >= 0; i--) {
+    for (var i = drinks.length - 1; i >= 0; i--) {
         var productCol = document.createElement("DIV")
         productCol.setAttribute("class", productColCls)
         var productCont = document.createElement("DIV")

@@ -27,6 +27,7 @@
                       <th>Remark</th>
                       <th>Payment Status</th>
                       <th>Date</th>
+                      <th>Time</th>
                       <th>Phone Number</th>
                       <th>Location</th>
                       <th>Invoice</th>
@@ -39,6 +40,7 @@
                       <th>Remark</th>
                       <th>Payment Status</th>
                       <th>Date</th>
+                      <th>Time</th>
                       <th>Phone Number</th>
                       <th>Location</th>
                       <th>Invoice</th>
@@ -57,9 +59,13 @@
                           <td>{{ $order -> remark }}</td>
                           <td>{{ $order -> status }}</td>
                           <td>{{ $order -> order_date }}</td>
+                          <td>{{ $order -> time }}</td>
                           <td>{{ $order -> phone_num }}</td>
                           <td>{{ $order -> order_location }}
-                          <td><a id="invoice" class="btn btn-success" href="/admin/invoice/{{ $order -> id }}">Get Invoice</a>
+                          <td>
+                            <a id="invoice" class="btn btn-success" href="/admin/invoice/{{ $order -> id }}">
+                                Get Invoice
+                            </a>
                         </tr>
                   @endforeach
                   </tbody>
@@ -93,7 +99,6 @@
       
     </div>
   </div>
-@endsection
 
   <script type="text/javascript">
         $(document).ready(function(){
@@ -131,6 +136,7 @@
 
 </script>
 
+@endsection
 
 
 @section('script')

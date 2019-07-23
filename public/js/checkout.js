@@ -138,8 +138,8 @@ function purchaseClicked(event) {
     ckRow.classList.add('ck-tr')
     var ckItems = document.getElementsByClassName('ck-items')[0]
     var ckRowContents=`
-                                <th scope="row">${no+1}</th>
-                                <td><button class="btn btn-danger" type="button">x</button></td>
+                                <th scope="row">${no+1} <button class="btn btn-danger" type="button">x</button></th>
+                                
                                 <td class="ck-item">${title}</td>
                                 <td class="ck-price">$${price}</td>
                                 <td class="ck-qty">${quantity}</td>
@@ -164,11 +164,11 @@ function updateCkTotal() {
     }
         document.getElementsByClassName('ck-oAmount')[0].innerText = '$' + total
     var tax=(total * 0.05);
-    	document.getElementsByClassName('ck-tax')[0].innerText='$' + tax
-    	var deliFee=0;
-    	var total_F = total + tax + deliFee
-    	total_F = Math.round(total_F *100) / 100
-    	document.getElementsByClassName('total-price')[0].innerText= '$' + total_F
+        document.getElementsByClassName('ck-tax')[0].innerText='$' + tax
+        var deliFee=0;
+        var total_F = total + tax + deliFee
+        total_F = Math.round(total_F *100) / 100
+        document.getElementsByClassName('total-price')[0].innerText= '$' + total_F
         document.getElementById('server-total').innerText = total_F
     
 }
@@ -180,6 +180,4 @@ function phoneMask() {
     $(this).val(num.substring(0,2) + '-'+ num.substring(2,5) + ' ' + num.substring(5,8) + ' ' + num.substring(8,12)); 
 }
 $('[type="tel"]').keyup(phoneMask);
-
-
 
