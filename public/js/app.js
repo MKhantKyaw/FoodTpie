@@ -41324,13 +41324,13 @@ var render = function() {
                   _vm._v("Please Select Category")
                 ]),
                 _vm._v(" "),
-                _c("option", [_vm._v("main dish")]),
+                _c("option", [_vm._v("Main Dish")]),
                 _vm._v(" "),
-                _c("option", [_vm._v("side dish")]),
+                _c("option", [_vm._v("Side Dish")]),
                 _vm._v(" "),
-                _c("option", [_vm._v("dessert")]),
+                _c("option", [_vm._v("Dessert")]),
                 _vm._v(" "),
-                _c("option", [_vm._v("drinks")])
+                _c("option", [_vm._v("Drinks")])
               ]
             ),
             _vm._v(" "),

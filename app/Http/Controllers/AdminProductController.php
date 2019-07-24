@@ -35,14 +35,14 @@ class AdminProductController extends Controller
        $product->show = $request->input('show');
        $product->image_url = 'images/products/';
 
-       if($product->category == "main dish")
+       if($product->category == "Main Dish")
        {
         $product->image_url .='mainDishes/';
        }
-       else if($product->category == "side dish")
+       else if($product->category == "Side Dish")
        {
         $product->image_url .='sideDishes/';
-       }else if($product->category == "dessert")
+       }else if($product->category == "Dessert")
        {
         $product->image_url .='desserts/';
        }else{
@@ -68,13 +68,13 @@ class AdminProductController extends Controller
        $category = $request->input('category');
         $path = 'images/products/';
 
-       if($category == "main dish")
+       if($category == "Main Dish")
        {
         $path .='mainDishes/';
        }
-       else if($category == "side dish"){
+       else if($category == "Side Dish"){
         $path .='sideDishes/';
-       }else if($category == "dessert")
+       }else if($category == "Dessert")
        {
         $path .='desserts/';
        }else{

@@ -57,8 +57,6 @@ function orderClicked(event){
     totalPrice.setAttribute("style","display:none")
     form.appendChild(totalPrice)
     document.getElementsByClassName('form-status')[0].value = "on cash"
-    alert("Thank you for ordering")
-    form.submit()
 }
 
 function onlinePay(){
@@ -171,6 +169,7 @@ function updateCkTotal() {
         var promoData = selectedValue.split(' ')
         var discount = promoData[0]
         var promoId = promoData[1]
+        var discountedAmount = document.getElementsByClassName('ck-disc')[0].innerText = '-$'+total_F*discount
         total_F -= total_F * discount
         total_F = Math.round(total_F *100) / 100
         document.getElementsByClassName('total-price')[0].innerText= '$' + total_F

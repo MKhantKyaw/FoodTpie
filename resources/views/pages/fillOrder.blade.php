@@ -165,7 +165,7 @@
                             </div>                              
                         </div>
                         <div id="formgp" class="col-md-12 text-center subCanBut">
-                            <button type="button" class="btn btn-primary btn-lg btn-c btn-order-submit">Submit Order</button>            
+                            <button type="submit" class="btn btn-primary btn-lg btn-c btn-order-submit">Submit Order</button>            
                             <button type="button" class="btn btn-secondary btn-lg btn-c">Cancel</button>
                         </div>
                         <div id="paypal-button-container" style="display: none"></div>

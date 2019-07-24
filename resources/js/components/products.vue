@@ -90,10 +90,10 @@
                     </div>
                 <select v-model="product.category" class="mt-3 form-control">
                         <option disabled value="">Please Select Category</option>
-                        <option>main dish</option>
-                        <option>side dish</option>
-                        <option>dessert</option>
-                        <option>drinks</option>
+                        <option>Main Dish</option>
+                        <option>Side Dish</option>
+                        <option>Dessert</option>
+                        <option>Drinks</option>
                 </select>
                 <input type="text" v-model="product.price" class="form-control mt-3" placeholder="Product Price">
                 <br>
