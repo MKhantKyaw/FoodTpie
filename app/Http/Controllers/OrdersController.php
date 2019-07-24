@@ -62,7 +62,7 @@ class OrdersController extends Controller
             $promoRec = Promo::where('id',$promo)->get();
             $promoRec[0]->delete();
         }
-        return redirect('/menu');
+        return redirect('/');
     }
     
     public function order(){

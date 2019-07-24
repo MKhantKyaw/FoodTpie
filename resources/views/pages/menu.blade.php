@@ -33,7 +33,7 @@
 <div id="menu" class="menu-main pad-top-100 pad-bottom-100" style="padding-top: 120px">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11" style="padding-left: 40px;">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
                       Our Menu

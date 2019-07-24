@@ -4,7 +4,6 @@
 
 @section('content')
 
-
         <!-- Begin Page Content --> 
         <div class="container-fluid">
 
@@ -16,6 +15,7 @@
           <form id="promoForm" style="display: none;" action="/storePromo" method="POST">
             @csrf
             <input type="text" name="promo" id="promo">
+            <input type="text" name="recentDraw" id="recentDraw">
           </form>
 
           <!-- The Modal -->
@@ -62,11 +62,22 @@
   <!-- Page level plugins -->
 {{--   <script src="{{ URL::asset('administrator/vendor/datatables/jquery.dataTables.min.js') }}"></script> --}}
   <script type="text/javascript">
+    var promos = JSON.parse('<?php echo json_encode($promos) ?>')
     var counter =  document.getElementById('counter')
     var promo = 0.0
+    
+    function checkDoubleDraw(){
+      var date = new Date()
+      for (var i = 0; i <= promos.length - 1; i++) {
+        if (promos[i].recentDraw == date.toLocaleDateString('en-GB') ) {
+          return true
+        }
+      }
+      return false
+    }
 
     function countDayHour() {
-      var d = new Date("July 17, 2019 08:15:00")
+      var d = new Date()
       var n = 3 - d.getDay()
       var t = 0-d.getHours()
       if(n==1){
@@ -80,11 +91,16 @@
       }else if(n<0){
         n += 7
       }else if(n == 0){
-        var promotionBut = '<button type="button" onclick="drawPromotion()" data-toggle="modal" data-target="#myModal" class="btn btn-success">Draw Promotion</button>'
-        counter.innerHTML = promotionBut
+        if(checkDoubleDraw()){
+          counter.innerText = "You have already drawn a time today"
+        }else{
+          var promotionBut = '<button type="button" onclick="drawPromotion()" data-toggle="modal" data-target="#myModal" class="btn btn-success">Draw Promotion</button>'
+          counter.innerHTML = promotionBut
+        }
         return
       }
       counter.innerText = n + " days until the lucky draw"
+
     }
 
     function drawPromotion(){
@@ -124,6 +140,9 @@
       var form = document.getElementById('promoForm')
       var promoInput = document.getElementById('promo')
       promoInput.value = promo
+      var date = new Date()
+      var recentDraw = document.getElementById('recentDraw')
+      recentDraw.value = date.toLocaleDateString('en-GB')
       form.submit()
     }
 

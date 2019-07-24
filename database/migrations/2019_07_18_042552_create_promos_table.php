@@ -17,6 +17,7 @@ class CreatePromosTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('uid');
             $table->float('discount');
+            $table->string('recentDraw')->default('default');
             $table->timestamps();
         });
     }

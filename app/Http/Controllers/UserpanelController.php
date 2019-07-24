@@ -28,13 +28,15 @@ class UserpanelController extends Controller
     }
 
     public function promotion(){
-        return view('user.promotion');
+        $promos = Promo::where('uid',auth()->id())->get();
+        return view('user.promotion',compact('promos'));
     }
 
     public function storePromo(){
         Promo::create([
             'uid' => auth()->id(),
-            'discount' => request('promo')
+            'discount' => request('promo'),
+            'recentDraw' => request('recentDraw')
         ]);
         return redirect('/userDashboard');
     }

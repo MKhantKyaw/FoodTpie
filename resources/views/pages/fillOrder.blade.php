@@ -132,7 +132,7 @@
 
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Order Date:</label>
-                                <input type="text" class ="inp" name="order_date" id="date-picker" placeholder="Date" required="required" data-error="Date is required." />
+                                <input type="text" class ="inp" name="order_date" id="date-picker" onfocusout="dateClicked()"  placeholder="Date" required="required" data-error="Date is required." />
                             </div>
 
                             <div id="formgp" class="col-md-12 in-pudding">
@@ -300,14 +300,41 @@
     <script type="text/javascript">
         var date = new Date();
         var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        
         $('#date-picker').datetimepicker({
             format: 'DD.MM.YYYY',
             minDate: today
         });
-        $('#timepick').datetimepicker({
-            format: 'LT',
-            enabledHours: [10, 11, 12, 13, 14, 15, 16],
-        });
+
+        function dateClicked(){
+            var pickedDate = document.getElementById('date-picker').value
+            var d = date.toLocaleDateString('en-GB');
+            d = d.replace(/\//g,'.')
+            if (d == pickedDate) {
+                var time = date.getHours()+2;
+                var enableHr = [];
+                if (time < 10) {
+                    time = 10;
+                    enableHr = [];
+                    for (var i = time; i <= 16; i++) {
+                        enableHr.push(i);
+                    }
+                }else if (time >= 18){
+                    enableHr = [];
+                }else{
+                    enableHr = [];
+                    for (var i = time; i <= 16; i++) {
+                        enableHr.push(i);
+                    }
+                }        
+            }else{
+                enableHr = [10,11,12,13,14,15,16];
+            }
+            $('#timepick').datetimepicker({
+                format: 'LT',
+                enabledHours: enableHr,
+            });
+        }
     </script>
 </body>
 </html>
