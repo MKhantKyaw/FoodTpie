@@ -15,18 +15,18 @@
                                 <ul class="socials-box footer-socials pull-left">
                                     <li>
                                         <a href="#">
-                                            <div class="social-circle-border"><i class="fa fa-apple"></i></div>
+                                            <div class="social-circle-border"><i class="fab fa-facebook"></i></div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                            <div class="social-circle-border"><i class="fab fa-twitter"></i></div>
                                         </a>
                                     </li>
 
                                     <li>
                                         <a href="#">
-                                            <div class="social-circle-border"><i class="fa fa-instagram"></i></div>
+                                            <div class="social-circle-border"><i class="fab fa-instagram"></i></div>
                                         </a>
                                     </li>
                                 </ul>

@@ -16,7 +16,7 @@
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
                                     <li class="{{ (request()->is('menu')) ? 'active' : '' }}"><a href="{{ url('/menu') }}">Menu</a></li>
-                                    <li class="{{ (request()->is('pricing')) ? 'active' : '' }}"><a href="{{ url('/pricing') }}">pricing</a></li>
+                                    {{-- <li class="{{ (request()->is('pricing')) ? 'active' : '' }}"><a href="{{ url('/pricing') }}">pricing</a></li> --}}
                                     {{-- <li class="{{ (request()->is('reservation')) ? 'active' : '' }}"><a href="{{ url('/reservation') }}">Reservation</a></li> --}}
                                     <li class="{{ (request()->is('about')) ? 'active' : '' }}"><a href="{{ url('/about') }}">About</a></li>
                                     <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}">Contact us</a></li>

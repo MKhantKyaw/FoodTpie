@@ -300,19 +300,29 @@
     <script type="text/javascript">
         var date = new Date();
         var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-        
+        var tomorrow = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1);
+        var displayDate
+        var time = date.getHours()+2;
+        if (time>16) {
+            displayDate = tomorrow
+        }else{
+            displayDate = today
+        }
+
         $('#date-picker').datetimepicker({
             format: 'DD.MM.YYYY',
-            minDate: today
+            minDate: displayDate
         });
 
         function dateClicked(){
             var pickedDate = document.getElementById('date-picker').value
-            var d = date.toLocaleDateString('en-GB');
+            alert(pickedDate)
+            var d = date.toLocaleDateString('en-GB')
             d = d.replace(/\//g,'.')
+            alert(d)
+            var enableHr = [];
             if (d == pickedDate) {
                 var time = date.getHours()+2;
-                var enableHr = [];
                 if (time < 10) {
                     time = 10;
                     enableHr = [];
