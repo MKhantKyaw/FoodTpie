@@ -2546,3 +2546,6 @@ select {
 .select:hover::after {
   color: #f39c12;
 }
+.ft-padd {
+  padding: 10px 15px;
+}

@@ -8,24 +8,24 @@
                                 <img src="images/FoodTPie_logo2.png" alt="logo" />
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="col-sm-3 ft-padd">
                             <div class="footer-box-a">
                                 <h3>About Us</h3>
                                 <p>Food Service.<br> </p>
                                 <ul class="socials-box footer-socials pull-left">
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.facebook.com">
                                             <div class="social-circle-border"><i class="fab fa-facebook"></i></div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://.twitter.com">
                                             <div class="social-circle-border"><i class="fab fa-twitter"></i></div>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.instagram.com">
                                             <div class="social-circle-border"><i class="fab fa-instagram"></i></div>
                                         </a>
                                     </li>
@@ -35,20 +35,8 @@
                             <!-- end footer-box-a -->
                         </div>
                         <!-- end col -->
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="footer-box-b">
-                                <h3>New Menu</h3>
-                                <ul>
-                                    <li><a href="#">Italian Bomba Sandwich</a></li>
-                                    <li><a href="#">Double Dose of Pork Belly</a></li>
-                                    <li><a href="#">Spicy Thai Noodles</a></li>
-                                    <li><a href="#">Triple Truffle Trotters</a></li>
-                                </ul>
-                            </div>
-                            <!-- end footer-box-b -->
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                        <div class="col-sm-6 ft-padd">
                             <div class="footer-box-c">
                                 <h3>Contact Us</h3>
                                 <p>
@@ -69,7 +57,7 @@
                             <!-- end footer-box-c -->
                         </div>
                         <!-- end col -->
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="col-sm-3 ft-padd">
                             <div class="footer-box-d">
                                 <h3>Opening Hours</h3>
 
@@ -117,4 +105,3 @@
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
     <!-- ALL PLUGINS -->
     <script src="{{ URL::asset('js/custom.js') }}"></script>
-

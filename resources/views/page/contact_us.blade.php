@@ -10,7 +10,7 @@
                 <div class="banner-static">
                     <div class="banner-text">
                         <div class="banner-cell">
-                            <h1>Dinner with <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates:Loves " data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                            <h1>Meal with <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates:Loves " data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
                             <h2>Good Food Equals Good Mood </h2>
                             <p>If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.</p>
                             <div class="book-btn">

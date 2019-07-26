@@ -94,15 +94,15 @@ class AdminProductController extends Controller
        // $imagePath = $request->input('image');
        // $image = substr($imagePath, strrpos($imagePath,'/')+1);
        $product->image_url = 'images/products/';
-       if($product->category == "main dish")
+       if($product->category == "Main Dish")
        {
         $product->image_url .='mainDishes/';
        }
-       else if($product->category == "side dish")
+       else if($product->category == "Side Dish")
        {
         $product->image_url .='sideDishes/';
        }
-       else if($product->category == "dessert")
+       else if($product->category == "Dessert")
        {
         $product->image_url .='desserts/';
        }else{

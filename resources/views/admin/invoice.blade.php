@@ -146,7 +146,7 @@
   <body>
     <header class="clearfix">
       <div id="logo">
-        <img src="/images/FoodTPie_logo2.png">
+        <img src="/images/FoodTpie Logo (black).png">
       </div>
       <h1>INVOICE</h1>
       <div id="company" class="clearfix">

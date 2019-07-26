@@ -77,8 +77,10 @@ function removeCartItem(event) {
     itemCount--
     if (itemCount == 0) {
         $('#itemCount').html(itemCount).css('display', 'none');
+        document.getElementById("btn-purchase").disabled = true;
     }else{
         $('#itemCount').html(itemCount).css('display', 'block');
+        document.getElementById("btn-purchase").disabled = false;
     }
 }
 
@@ -104,6 +106,7 @@ function addToCartClicked(event) {
         var imageSrc = shopItem.getElementsByClassName('menu-item-image')[0].src
         addItemToCart(id, title, price, imageSrc)
     }
+    document.getElementById("btn-purchase").disabled = false;
     updateCartTotal()
 }
 

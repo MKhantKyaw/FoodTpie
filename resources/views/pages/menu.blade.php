@@ -140,7 +140,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    <button class="btn btn-primary btn-purchase"  id="btn-purchase" disabled="disabled" type="button">PURCHASE</button>
 </div>
 </div>
 </div>

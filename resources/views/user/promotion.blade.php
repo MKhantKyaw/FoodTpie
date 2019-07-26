@@ -1,6 +1,6 @@
 @extends('user/layout/layout')
 
-@section('pageTitle', 'User Dashboard')
+@section('pageTitle', 'Promotion')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Promotion</h1> 
-          <div>Feeling Lucky?<br>Win some lucky draw promotion every wednesday.</div>
+          <div>Feeling Lucky?<br>Win some lucky draw promotion every Thursday.</div>
           <div id="counter"></div>
 
           <form id="promoForm" style="display: none;" action="/storePromo" method="POST">
@@ -78,7 +78,7 @@
 
     function countDayHour() {
       var d = new Date()
-      var n = 3 - d.getDay()
+      var n = 4 - d.getDay()
       var t = 0-d.getHours()
       if(n==1){
         if (t==0){

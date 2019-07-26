@@ -9,7 +9,7 @@
                 <div class="banner-static">
                     <div class="banner-text">
                         <div class="banner-cell">
-                            <h1>Dinner with <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates:Loves " data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                            <h1>Meal with <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates:Loves " data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
                             <h2>Good Food Equals Good Mood </h2>
                             <p>If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.</p>    
                         </div>
@@ -33,7 +33,7 @@
                         <h2 class="block-title text-center">
 						Our Team
 					</h2>
-                        <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                        <p class="title-caption text-center">Do you believe these guys would finish this project in a very short period of time? Don't mess up with them. Everyone is GOD and litt in many different ways </p>
                     </div>
                     <div class="team-box">
 
@@ -41,11 +41,11 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-01.jpg" alt=""></a>
+                                        <a href="#"><img src="images/mkk.jpg" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Min Khant Kyaw</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <p>A backend developer with many extraordinary skills. Had to combine four different kinds of scripts (Vue, Ajax, JS, Jquery) but still smiling. </p>
                                         <ul class="team-social">
                                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -58,11 +58,11 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-02.jpg" alt=""></a>
+                                        <a href="#"><img src="images/tak.jpg" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Than Aung Kyaw</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <p>The only one out of three developers, who use the most reasonable script for this Laravel website. Looks like a MC? Yeah, he is.</p>
                                         <ul class="team-social">
                                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -75,15 +75,15 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-03.jpg" alt=""></a>
+                                        <a href="#"><img src="images/ssl.jpg" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Swan Saung Lwin</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <p>The most unpredictable developer of all time. Sometimes uses old ways to clean the bugs but it works everytime. His nickname is OCBL. </p>
                                         <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -93,11 +93,11 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-03.jpg" alt=""></a>
+                                        <a href="#"><img src="images/skb.jpg" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>SHane Khant Bwal</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <p>Had been the best programmer of 5th batch but end up choosing BIS instead. He is the CBO of this project and also TTMY xD.</p>
                                         <ul class="team-social">
                                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -111,11 +111,11 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-03.jpg" alt=""></a>
+                                        <a href="#"><img src="images/anp.jpg" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Aung Naing Phyoe</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <p>He has many names. UI GOD, Script GOD, Depressed GOD xD. CAUTION!!! The more depressed he gets, the more GOD he becomes.</p>
                                         <ul class="team-social">
                                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -129,11 +129,11 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-03.jpg" alt=""></a>
+                                        <a href="#"><img src="images/hmm.jpg" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Han Min Myat</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <p>Can't help complementing him for maintaining UI so perfect. If you don't believe, ask him something, and he will show you perfecture.</p>
                                         <ul class="team-social">
                                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>

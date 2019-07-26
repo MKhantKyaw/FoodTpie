@@ -301,7 +301,7 @@
         var date = new Date();
         var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         var tomorrow = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1);
-        var displayDate
+        var displayDate;
         var time = date.getHours()+2;
         if (time>16) {
             displayDate = tomorrow
@@ -316,10 +316,10 @@
 
         function dateClicked(){
             var pickedDate = document.getElementById('date-picker').value
-            alert(pickedDate)
+            // alert(pickedDate)
             var d = date.toLocaleDateString('en-GB')
             d = d.replace(/\//g,'.')
-            alert(d)
+            // alert(d)
             var enableHr = [];
             if (d == pickedDate) {
                 var time = date.getHours()+2;
