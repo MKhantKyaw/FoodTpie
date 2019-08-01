@@ -39,6 +39,7 @@
   <!-- ALL JS FILES -->
   <script src="{{ URL::asset('js/all.js') }}"></script>
   <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <!-- ALL PLUGINS -->
   <script src="{{ URL::asset('js/custom.js') }}"></script>
   <script src="{{ URL::asset('/path/to/jquery.cookie.js') }}"></script>
@@ -139,6 +140,7 @@
                                 <label for="exampleFormControlTextarea1">Order Time:</label>
                                 <input type="text" class="inp" name="time" id="timepick" placeholder="Time" required="required" data-error="Time is required." />
                             </div>
+                            @if(Auth::guard('web')->check()==true)
                             <div id="formgp" class="col-md-12 in-pudding">
                                 <label for="exampleFormControlTextarea1">Promo Code:</label>
                                 <div class="select">
@@ -151,9 +153,9 @@
                                     @endif
                                 </select>
                                 <input type="text" name="promo_id" id="promoId" style="display: none;" value="0">
-                            </div>
+                            </div>  
                         </div>
-
+                        @endif
                         <div id="formgp" class="col-md-12"> 
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Cash_on_delivery" value="option1" checked onclick="cashPayClicked()">
@@ -183,7 +185,22 @@
                           },
                           onApprove: function(data, actions) {
                               return actions.order.capture().then(function(details) {
-                                alert('Transaction completed by ' + details.payer.name.given_name);
+                               // alert('Transaction completed by ' + details.payer.name.given_name);
+                                // Swal.fire({
+                                // title: 'Success!',
+                                // text: 'Transaction completed by ' + details.payer.name.given_name,
+                                // type: 'success'
+                                // })
+                                 const Toast = Swal.mixin({
+                                  toast: true,
+                                  position: 'top',
+                                  showConfirmButton: false,
+                                  timer: 3000
+                                 });
+                                Toast.fire({
+                                  type: 'success',
+                                  title: 'Transaction completed by ' + details.payer.name.given_name
+                                })
                                 onlinePay();
                                     // Call your server to save the transaction
                                     return fetch('/paypal-transaction-complete', {
@@ -215,7 +232,7 @@
                         <th scope="col">#</th>                
                         <th scope="col">Item</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Quality</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Total</th>
                     </tr>
                 </thead>

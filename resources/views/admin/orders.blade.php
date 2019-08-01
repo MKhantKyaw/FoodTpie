@@ -57,7 +57,19 @@
                         <tr>
                           <td>
                             <button type="button" class="btn btn-info btn-lg" id="{{$order->id}}" value="{{$order->id}}">
-                            {{ $order -> id }}
+                            <?php 
+                                $id = $order -> id;
+                                $oid = "";
+                                $counter = $id/10;
+                                if ($counter < 1) {
+                                  $oid = "ORD00";
+                                }else if ($counter < 10) {
+                                  $oid = "ORD0";
+                                }else {
+                                  $oid = "ORD";
+                                }
+                                echo $oid.$id;
+                             ?>
                             </button>
                           </td>
                           <td>{{ $order -> customer_name }}</td>

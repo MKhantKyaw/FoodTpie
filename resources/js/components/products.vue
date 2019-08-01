@@ -31,7 +31,9 @@
                         </thead>
                         <tbody>
                                 <tr v-for="product in filteredProducts" v-bind:key="product.id" align="center">
-                                <td> {{ product.id }} </td>
+                                <td v-if="product.id/10 < 1"> P00{{ product.id }} </td>
+                                <td v-else-if="product.id/10 < 10"> P0{{ product.id }} </td>
+                                 <td v-else> P{{ product.id }} </td>
                                 <td> {{ product.name }} </td>
                                 <td> <img class="rounded img-thumbnail" :src="product.image" alt="no image"></td>
                                 <td> {{ product.category }} </td>
@@ -142,11 +144,11 @@ export default {
              products:[], //array
              product: { id:'', name:'' , image:'Choose image', category:'', price:'' , show:'' }, //object
              product_id:'',
-             pagination: {},
+            pagination: {},
              edit:false,
              searchProduct: '',
              imageFile:null,
-            imageName:''
+            imageName:'',
         }
     },
     
@@ -302,10 +304,17 @@ export default {
         filteredProducts(){
             return this.products.filter((product) =>{
                 //true or false for each product with match name
+               if(product.category.toLowerCase().match(this.searchProduct.toLowerCase())){
+                return product.category.toLowerCase().match(this.searchProduct.toLowerCase());
+               }
+               else if(product.price.toString().match(this.searchProduct)){
+                return product.price.toString();
+               }
+               else{
                 return product.name.toLowerCase().match(this.searchProduct.toLowerCase());
+               }
             });
-        },
-        // filteredImage(image){
+        },      // filteredImage(image){
 
         //     return image.substring(image.lastIndexOf('/')+1,image.length);
         // }

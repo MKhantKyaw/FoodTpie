@@ -95,7 +95,7 @@ function onlinePay(){
     totalPrice.setAttribute("style","display:none")
     form.appendChild(totalPrice)
     document.getElementsByClassName('form-status')[0].value = "online payment"
-    alert("Thank you for ordering")
+    // alert("Thank you for ordering")
     form.submit()
 }
 

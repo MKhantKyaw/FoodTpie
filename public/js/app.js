@@ -2006,6 +2006,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2183,7 +2185,13 @@ __webpack_require__.r(__webpack_exports__);
 
       return this.products.filter(function (product) {
         //true or false for each product with match name
-        return product.name.toLowerCase().match(_this5.searchProduct.toLowerCase());
+        if (product.category.toLowerCase().match(_this5.searchProduct.toLowerCase())) {
+          return product.category.toLowerCase().match(_this5.searchProduct.toLowerCase());
+        } else if (product.price.toString().match(_this5.searchProduct)) {
+          return product.price.toString();
+        } else {
+          return product.name.toLowerCase().match(_this5.searchProduct.toLowerCase());
+        }
       });
     }
   } //for add
@@ -41087,7 +41095,13 @@ var render = function() {
                       "tr",
                       { key: product.id, attrs: { align: "center" } },
                       [
-                        _c("td", [_vm._v(" " + _vm._s(product.id) + " ")]),
+                        product.id / 10 < 1
+                          ? _c("td", [
+                              _vm._v(" P00" + _vm._s(product.id) + " ")
+                            ])
+                          : product.id / 10 < 10
+                          ? _c("td", [_vm._v(" P0" + _vm._s(product.id) + " ")])
+                          : _c("td", [_vm._v(" P" + _vm._s(product.id) + " ")]),
                         _vm._v(" "),
                         _c("td", [_vm._v(" " + _vm._s(product.name) + " ")]),
                         _vm._v(" "),
